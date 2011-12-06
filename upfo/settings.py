@@ -149,14 +149,30 @@ LOGGING = {
 }
 
 AUTHENTICATION_BACKENDS = (
-	'social_auth.backends.facebook.FacebookBackend',
-	'django.contrib.auth.backends.ModelBackend',
-	)
-	
-SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
+    'social_auth.backends.twitter.TwitterBackend',
+    'social_auth.backends.facebook.FacebookBackend',
+    'social_auth.backends.google.GoogleOAuthBackend',
+    'social_auth.backends.google.GoogleOAuth2Backend',
+    'social_auth.backends.google.GoogleBackend',
+    'social_auth.backends.yahoo.YahooBackend',
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.flickr.FlickrBackend',
+    'social_auth.backends.OpenIDBackend',
+    'social_auth.backends.contrib.livejournal.LiveJournalBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
 
-FACEBOOK_APP_ID = '126197457491070'
-FACEBOOK_APP_SECRET = '2ed91326e1a7c88db7358727856877dc'
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.contrib.messages.context_processors.messages',
+    'social_auth.context_processors.social_auth_by_type_backends',
+)
+	
+#SOCIAL_AUTH_ENABLED_BACKENDS = ('google', 'google-oauth', 'twitter', 'facebook',)
 
 LOGIN_URL = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
@@ -164,3 +180,25 @@ LOGIN_ERROR_URL = '/login-error/'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
+
+TWITTER_CONSUMER_KEY              = ''
+TWITTER_CONSUMER_SECRET           = ''
+FACEBOOK_APP_ID 				  = '126197457491070'
+FACEBOOK_APP_SECRET 			  = '2ed91326e1a7c88db7358727856877dc'
+LINKEDIN_CONSUMER_KEY             = ''
+LINKEDIN_CONSUMER_SECRET          = ''
+ORKUT_CONSUMER_KEY                = ''
+ORKUT_CONSUMER_SECRET             = ''
+GOOGLE_OAUTH2_CLIENT_ID           = ''
+GOOGLE_OAUTH2_CLIENT_SECRET       = ''
+SOCIAL_AUTH_CREATE_USERS          = True
+SOCIAL_AUTH_FORCE_RANDOM_USERNAME = False
+SOCIAL_AUTH_DEFAULT_USERNAME      = 'socialauth_user'
+SOCIAL_AUTH_COMPLETE_URL_NAME     = 'socialauth_complete'
+LOGIN_ERROR_URL                   = '/login/error/'
+#SOCIAL_AUTH_USER_MODEL            = 'upfoMain.CustomUser'
+SOCIAL_AUTH_ERROR_KEY             = 'socialauth_error'
+GITHUB_APP_ID                     = ''
+GITHUB_API_SECRET                 = ''
+FOURSQUARE_CONSUMER_KEY           = ''
+FOURSQUARE_CONSUMER_SECRET        = ''
