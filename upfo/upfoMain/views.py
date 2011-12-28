@@ -4,10 +4,15 @@ from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.contrib.messages.api import get_messages
+import requests
+from django.utils import simplejson
 
 from social_auth import __version__ as version
 
-
+def channel(request):
+	
+	return render_to_response('channel.html', RequestContext(request))
+	
 def home(request):
     """Home view, displays login mechanism"""
     if request.user.is_authenticated():
@@ -34,3 +39,13 @@ def logout(request):
     """Logs out user"""
     auth_logout(request)
     return HttpResponseRedirect('/')
+
+def printFriends(request):
+	r = requests.get('https://graph.facebook.com/me/friends?access_token=AAACEdEose0cBADZA0Q5ZA19IOLJKgwhQVln0RKdOFUCfMb14BMh4kCUwMx36ERWW6IwlxrIExH1mnkZCufvjv2agYNtZBg0KuzQLZB8ZCMOAZDZD')
+	c = r.content
+	j = simplejson.loads(c)
+	
+	print(j)
+	#for item in j: 
+	#	print item['name']
+	#return HttpResponseRedirect('/')

@@ -172,7 +172,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'social_auth.context_processors.social_auth_by_type_backends',
 )
 	
-#SOCIAL_AUTH_ENABLED_BACKENDS = ('google', 'google-oauth', 'twitter', 'facebook',)
+SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
 
 LOGIN_URL = '/login-form/'
 LOGIN_REDIRECT_URL = '/logged-in/'
