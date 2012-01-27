@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 
-from upfoMain.views import home, done, logout, error, channel, printFriends, friendson
+from upfoMain.views import home, done, logout, error, channel, printFriends, friendson, turn_true
 
 
 admin.autodiscover()
