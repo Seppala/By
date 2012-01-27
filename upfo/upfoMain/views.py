@@ -10,9 +10,9 @@ from django.utils import simplejson
 from social_auth import __version__ as version
 
 def channel(request):
-	
-	return render_to_response('channel.html', RequestContext(request))
-	
+    
+    return render_to_response('channel.html', RequestContext(request))
+    
 def home(request):
     """Home view, displays login mechanism"""
     if request.user.is_authenticated():
@@ -41,11 +41,16 @@ def logout(request):
     return HttpResponseRedirect('/')
 
 def printFriends(request):
-	r = requests.get('https://graph.facebook.com/me/friends?access_token=AAACEdEose0cBADZA0Q5ZA19IOLJKgwhQVln0RKdOFUCfMb14BMh4kCUwMx36ERWW6IwlxrIExH1mnkZCufvjv2agYNtZBg0KuzQLZB8ZCMOAZDZD')
-	c = r.content
-	j = simplejson.loads(c)
-	
-	print(j)
-	#for item in j: 
-	#	print item['name']
-	#return HttpResponseRedirect('/')
+    r = requests.get('http://api.crunchbase.com/v/1/company/facebook.js')
+    #r = requests.get('https://graph.facebook.com/me/friends?access_token=AAACEdEose0cBADZA0Q5ZA19IOLJKgwhQVln0RKdOFUCfMb14BMh4kCUwMx36ERWW6IwlxrIExH1mnkZCufvjv2agYNtZBg0KuzQLZB8ZCMOAZDZD')
+    c = r.content
+    j = simplejson.loads(c)
+    
+    return render_to_response(j, RequestContext(request))
+    #for item in j: 
+    #   print item['name']
+    #return HttpResponseRedirect('/')
+
+def friendson(request):
+	return render_to_response('friends2.js', {'version': version},
+                              RequestContext(request))
