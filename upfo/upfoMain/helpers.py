@@ -33,4 +33,12 @@ def check_friends_for_users(j):
 			except:
 				print('no user with that uid...')
 	return dicta
+
+def turn_true(user):
+	try:
+		user.get_profile().is_upfo = True
+		return True
+	except:
+		return False
+	
 	

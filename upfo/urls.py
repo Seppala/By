@@ -16,4 +16,6 @@ urlpatterns = patterns('',
 	url(r'^print/', printFriends, name='printFriends'),
 	url(r'^friends/', friendson, name='friendson'),
     url(r'', include('social_auth.urls')),
+	url(r'^turn/$', turn_true, name='turn_true'),
+	
 )

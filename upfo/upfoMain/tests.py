@@ -45,11 +45,7 @@ class jsonTest(TestCase):
 		dicta = check_friends_for_users(j)
 		
 		print(dicta)
-	
-	def test_get_profile(self):
-		me = user.get_profile()
-		print('my status is:')
-		print (me.is_upfo)
+
 		
 		
 		

@@ -6,6 +6,7 @@ from django.shortcuts import render_to_response
 from django.contrib.messages.api import get_messages
 import requests
 from django.utils import simplejson
+from helpers import *
 
 from social_auth import __version__ as version
 
@@ -20,6 +21,13 @@ def home(request):
     else:
         return render_to_response('home.html', {'version': version},
                                   RequestContext(request))
+@login_required
+def turn_true(request):
+	upfo_updated = turn_true(request)
+	
+	ctx = {'version': version, 'last_login': request.session.get('social_auth_last_login_backend')}
+	return render_to_response('done.html', ctx, {'upfo_updated': upfo_updated }, RequestContext(request))
+	
 
 @login_required
 def done(request):
