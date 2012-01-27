@@ -1,0 +1,35 @@
+fb-button {
+	background: #5F78AB url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+	background-image: url(http://static.ak.fbcdn.net/rsrc.php/v1/yL/r/FGFbc80dUKj.png);
+	background-repeat-x: initial;
+	background-repeat-y: initial;
+	background-attachment: initial;
+	background-position-x: initial;
+	background-position-y: initial;
+	background-origin: initial;
+	background-clip: initial;
+	background-color: #5F78AB;
+	border-top: solid 1px #879AC0;
+	border-top-style: solid;
+	border-top-width: 1px;
+	border-top-color: #879AC0;
+	border-bottom: solid 1px #1A356E;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #1A356E;
+	color: white;
+	display: block;
+	font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+	font-weight: bold;
+	padding: 2px 6px 3px 6px;
+	padding-top: 2px;
+	padding-right: 6px;
+	padding-bottom: 3px;
+	padding-left: 6px;
+	margin: 1px 1px 0 21px;
+	margin-top: 1px;
+	margin-right: 1px;
+	margin-bottom: 0px;
+	margin-left: 21px;
+	text-shadow: none;
+}
