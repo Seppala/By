@@ -23,9 +23,13 @@ def home(request):
                                   RequestContext(request))
 @login_required
 def turn_true(request):
-	me = request.user
+	if request.user.is_upfo == None:
+		request.user.is_upfo = False
+	else:
+		request.user.is_upfo = True
 	
-	upfo_updated = turn_true(me)
+	#upfo_updated = turn_true(me)
+	upfo_updated = True
 	
 	ctx = {'version': version, 'last_login': request.session.get('social_auth_last_login_backend')}
 	return render_to_response('done.html', ctx, {'upfo_updated': upfo_updated }, RequestContext(request))
