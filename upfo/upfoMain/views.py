@@ -23,7 +23,7 @@ def home(request):
                                   RequestContext(request))
 @login_required
 def turn_true(request):
-	if request.user.get_profile().is_upfo == None:
+	if request.get_profile().is_upfo == None:
 		request.user.get_profile().is_upfo = False
 	else:
 		request.user.get_profile().is_upfo = True
