@@ -1,5 +1,6 @@
 # Define a custom User class to work with django-social-auth
 from django.db import models
+from django.contrib.auth.models import User
 
 class CustomUserManager(models.Manager):
     def create_user(self, username, email):
@@ -7,11 +8,13 @@ class CustomUserManager(models.Manager):
 
 
 class CustomUser(models.Model):
+    user = models.OneToOneField(User)
     username = models.CharField(max_length=128)
     last_login = models.DateTimeField(blank=True, null=True)
     is_upfo = models.NullBooleanField(null=True, default=False)
+    
     #is_active  = BooleanField()
-	#friends = models.ManyToManyField("Friends")
+    #friends = models.ManyToManyField("Friends")
 
     objects = CustomUserManager()
 
