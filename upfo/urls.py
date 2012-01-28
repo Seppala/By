@@ -8,7 +8,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^$', home, name='home'),
-    url(r'^logged-in/$', done, name='done'),
+    url(r'^done/$', done, name='done'),
     url(r'^error/$', error, name='error'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
