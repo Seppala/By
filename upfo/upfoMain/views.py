@@ -23,10 +23,10 @@ def home(request):
                                   RequestContext(request))
 @login_required
 def turn_true(request):
-	if request.user.is_upfo == None:
-		request.user.is_upfo = False
+	if request.user.get_profile.is_upfo == None:
+		request.user.get_profile.is_upfo = False
 	else:
-		request.user.is_upfo = True
+		request.user.get_profile.is_upfo = True
 	
 	#upfo_updated = turn_true(me)
 	upfo_updated = True
