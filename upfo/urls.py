@@ -9,6 +9,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', home, name='home'),
     url(r'^done/$', done, name='done'),
+	url(r'^logged-in/$', done, name='done'),
     url(r'^error/$', error, name='error'),
     url(r'^logout/$', logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
@@ -17,5 +18,7 @@ urlpatterns = patterns('',
 	url(r'^friends/', friendson, name='friendson'),
     url(r'', include('social_auth.urls')),
 	url(r'^turn/$', turn_true, name='turn_true'),
+	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
+	{'document_root': '/Users/rikuseppala/Development/upfo/upfo/media'}),
 	
 )

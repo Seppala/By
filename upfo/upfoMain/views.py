@@ -7,7 +7,7 @@ from django.contrib.messages.api import get_messages
 import requests
 from django.utils import simplejson
 from helpers import *
-
+from facebookapi.fbhelpers import *
 from social_auth import __version__ as version
 
 def channel(request):
@@ -23,24 +23,52 @@ def home(request):
                                   RequestContext(request))
 @login_required
 def turn_true(request):
-	if request.get_profile().is_upfo == None:
-		request.user.get_profile().is_upfo = False
-	else:
-		request.user.get_profile().is_upfo = True
-	
-	#upfo_updated = turn_true(me)
-	upfo_updated = True
-	
-	ctx = {'version': version, 'last_login': request.session.get('social_auth_last_login_backend')}
-	return render_to_response('done.html', ctx, {'upfo_updated': upfo_updated }, RequestContext(request))
-	
+    try:
+        friends_list = get_friends(request.user)
+        ii = request.user.get_profile()
+    
+        print(ii.is_upfo) #Here it is False
+        #ii.is_upfo = True
+        print(request.user.get_profile().is_upfo) #Does actually change to True
+        if ii.is_upfo == None or ii.is_upfo == False:
+            ii.is_upfo = True
+            #print('made it true..')
+            ii.save()
+        elif ii.is_upfo == True:
+            #print('so now it comes here...')
+            ii.is_upfo = False
+            ii.save()
+        
+        """Breaks friends list into three: upfo, users, and nonusers"""
+        friends_lists = friends_are_users(friends_list)
+        upfos = friends_lists['upfos']
+        users = friends_lists['users']
+        nonusers = friends_lists['nonusers']
+
+        ctx = {'version': version,
+           'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}
+        return render_to_response('done.html', ctx, RequestContext(request))
+
+    except:
+        return render_to_response('done.html', RequestContext(request))
 
 @login_required
 def done(request):
     """Login complete view, displays user data"""
-    ctx = {'version': version,
-           'last_login': request.session.get('social_auth_last_login_backend')}
-    return render_to_response('done.html', ctx, RequestContext(request))
+    try:
+        friends_list = get_friends(request.user)
+        #"""Breaks friends list into three: upfo, users, and nonusers"""
+        friends_lists = friends_are_users(friends_list)
+        upfos = friends_lists['upfos']
+        users = friends_lists['users']
+        nonusers = friends_lists['nonusers']
+    
+        ctx = {'version': version,
+            'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}
+        return render_to_response('done.html', ctx, RequestContext(request))
+    except:
+        messages = get_messages(request)
+        return render_to_response('done.html', {'messages': messages}, RequestContext(request))
 
 def error(request):
     """Error view"""
@@ -66,5 +94,5 @@ def printFriends(request):
     #return HttpResponseRedirect('/')
 
 def friendson(request):
-	return render_to_response('friends2.js', {'version': version},
+    return render_to_response('friends2.js', {'version': version},
                               RequestContext(request))

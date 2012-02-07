@@ -3,20 +3,65 @@
 {% block heading %}Logged in!{% endblock %}
 
 {% block content %}
+{% if messages %}
+    {% for msg in messages %}
+        <p class="error">{{ msg.message }} ({{ msg.extra_tags }})</p>
+    {% endfor %}
+  {% endif %}
+  {% if error_msg %}
+    <p>Details:</p>
+    <p class="error">{{ error_msg }}</p>
+  {% endif %}
+{% if not user.get_profile.is_upfo %}
+
+<button class="btn btn-large btn-primary" onClick="window.location='/turn'">
+	I'm up for something</button>
+{% else %}
+<h3>You're up for something!</h3>
+<h6>Registered</h6>
+	<button class="btn btn-large btn-success" onClick="window.location='/turn'">
+		Click to cancel</button>
+{% endif %}
+	
+	
+	</button>
+<p class="description">I want you to meet more of your friends more often. Like in a village. Just press the blue button and let your friends know that you're up for something. You need to log-in with facebook first. We will never post anything to Facebook without your approval. </p>
 <div>
   <h3>User data:</h3>
   <table>
     <tr class="odd"><th>Id:</th> <td>{{ user.id }}</td></tr>
 	<tr class="even"><th>upfo_updated:</th> <td>{{ upfo_updated }}</td></tr>
-	<tr class="odd"><th>Is upfo:</th> <td>{{ user.is_upfo }}</td></tr>
+	<tr class="odd"><th>Is upfor:</th> <td id="isupfo">{{ user.get_profile.is_upfo }}</td></tr>
     <tr class="even"><th>Username:</th> <td>{{ user.username }}</td></tr>
     <tr class="odd"><th>Email:</th> <td>{{ user.email|default:"Not provided" }}</td></tr>
     <tr class="even"><th>First name:</th> <td>{{ user.first_name|default:"Not provided" }}</td></tr>
     <tr class="odd"><th>Last name:</th> <td>{{ user.last_name|default:"Not provided" }}</td></tr>
     <tr class="even"><th>Last login backend:</th> <td>{{ last_login }}</td></tr>
+	
+ 	<tr class="odd"><th>Uid</th> <td>{{ user.social_auth.get.uid }}</td></tr>
+	<tr class="even"><th>Access token:</th> <td>{{ user.social_auth.get.extra_data.access_token }}</td></tr>
   </table>
 </div>
-
+<div>
+	<h3>Friends that are up for something!</h3>
+	<table class="table table-condensed">
+		{% for friend in upfos %}
+		<tr><td>{{ friend.name }}</td></tr>
+		{% endfor %}
+	</table>
+	<h3>Other friends already on by:</h3>
+	<table class="table table-condensed">
+		{% for friend in users %}
+		<tr><td>{{ friend.name }}</td></tr>
+		{% endfor %}
+	</table>
+	<h3>Friends not yet on by:</h3>
+	<table class="table table-condensed">
+		{% for friend in nonusers %}
+		<tr><td>{{ friend.name }}</td></tr>
+		{% endfor %}
+	</table>
+</div>
 <div>
 {% if social_auth.associated %}
   <h3>Disconnect accounts</h3>

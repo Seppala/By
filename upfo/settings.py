@@ -56,12 +56,12 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = 'http://localhost/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -133,6 +133,9 @@ INSTALLED_APPS = (
     'south',
     'upfoMain',
 	'social_auth',
+	'jsonhandler',
+	'facebookapi',
+	'fbtestusers',
 )
 
 
@@ -186,14 +189,14 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
 
 LOGIN_URL = '/login-form/'
-LOGIN_REDIRECT_URL = '/logged-in/'
+LOGIN_REDIRECT_URL = '/'
 LOGIN_ERROR_URL = '/login-error/'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 
-FACEBOOK_APP_ID = '126197457491070'
-FACEBOOK_API_SECRET = 'b4faa98770530f2f7ac1e8926d41dff9'
+FACEBOOK_APP_ID = '200047203426040'
+FACEBOOK_API_SECRET = 'efbddb138180cb38af95785c866f9b5d'
 TWITTER_CONSUMER_KEY			  = ''
 TWITTER_CONSUMER_SECRET			  = ''
 #FACEBOOK_APP_ID					  = '126197457491070'
