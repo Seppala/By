@@ -41,9 +41,19 @@ def turn_true(request):
         
         """Breaks friends list into three: upfo, users, and nonusers"""
         friends_lists = friends_are_users(friends_list)
+        print('in views: friends_lists:')
+        #print(nonusers)
+      
         upfos = friends_lists['upfos']
         users = friends_lists['users']
         nonusers = friends_lists['nonusers']
+
+        print('in views: nonusers:')
+        print(nonusers)
+        print('in views: upfos:')
+        print(upfos)
+        print('in views: users:')
+        print(users)
 
         ctx = {'version': version,
            'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}
@@ -59,9 +69,17 @@ def done(request):
         friends_list = get_friends(request.user)
         #"""Breaks friends list into three: upfo, users, and nonusers"""
         friends_lists = friends_are_users(friends_list)
+        print(friends_lists)
         upfos = friends_lists['upfos']
         users = friends_lists['users']
         nonusers = friends_lists['nonusers']
+        print('in views: nonusers:')
+        #print(nonusers)
+        print('in views: upfos:')
+        #print(upfos)
+        print('in views: users:')
+        #print(users)
+        
     
         ctx = {'version': version,
             'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}

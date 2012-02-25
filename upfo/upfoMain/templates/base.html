@@ -1,33 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>By App - Turning cities into villages</title>
-	<link rel="stylesheet" href="/media/twboot/docs/assets/css/bootstrap.css">
-    <style type="text/css">
-      body {background-color: #eee; padding: 10px 20px; font-family: sans-serif; color: #333;}
-      h1, h2, h3 {margin: 0; padding: 0;}
-      h1 {font-size: 1.8em; border-bottom: 1px solid #bbb; width: 95%;}
-      h2 {font-size: 1.3em; border-bottom: 1px solid #ddd; width: 85%;}
-      h3 {font-size: 1.2em;}
-      a, a:visited {color: #459FDA; text-decoration: none;}
-      a:hover {text-decoration: underline;}
-      a img {border: 0;}
-      input[type="text"] {border: 1px solid #ccc; padding: 3px; width: 300px;}
-      input[type="submit"] {padding: 2px 20px; margin-left: -5px;}
-      label {display: block;}
-      th {text-align: left; padding-right: 25px; font-weight: normal;}
-      th, td {padding: 5px 15px;}
-      tr.even {background-color: #ddd;}
-      #heading {margin-top: 2.3em;}
-      #content {padding: 0 20px;}
-      .helptext {font-size: 0.9em; color: #aaa; margin: 0; padding: 0;}
-      .description {font-size: 1.0em; color: #333;}
-      a.logout, span.disconnect a, .error {color: #c00;}
-      .error {padding-left: 30px;}
-      #forkme {position: absolute; top: 0; right: 0;}
-      #valid-badges {position: fixed; right: 10px; bottom: 10px;}
-      #valid-badges p {display: inline;}
-    </style>
+	<!-- <link rel="stylesheet" href="/media/twboot/docs/assets/css/bootstrap.css"> -->
+    <link rel="stylesheet/less" type="text/css" href="/media/twboot/less/bootstrap.less">
+	<script src="/media/less-1.2.1.min.js" type="text/javascript"></script>
   </head>
   <body>
 	<div id="fb-root"></div>
@@ -52,12 +30,13 @@
 	     d.getElementsByTagName('head')[0].appendChild(js);
 	   }(document));
 	</script>
+<div class="container">
     <h1>By</h1>
 
     <h2 id="heading">{% block heading %}{% endblock %}</h2>
     <div id="content">
       {% block content %}{% endblock %}
     </div>
-    <div><a id="forkme" href="http://github.com/omab/django-social-auth"><img src="http://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub" /></a></div>
+</div>
   </body>
 </html>

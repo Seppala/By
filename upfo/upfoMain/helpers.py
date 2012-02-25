@@ -46,44 +46,52 @@ def friends_are_users(friends_dict):
 	users = []
 	nonusers = []
 	
-	users = User.objects.all()
+	all_users = User.objects.all()
 	social_users = UserSocialAuth.objects.all()
-	print('in fau: users:' + str(users))
+	print('in fau: users:' + str(all_users))
 	print('in fau: social_users:' + str(social_users))
+	print('friends dict data:' + str(friends_dict['data']))
 	#for each person in the dict 
 	#print(friends_dict['data'])
 	for friend in friends_dict['data']:
 		#check if they are users
 		#print('in for loop')
-		#get the facebook id
+		#get the facebook id]
 		ids = friend['id']
-		#print('ids:' + str(ids))
-		print(social_users.get(uid='48300441'))
-		thisguy = social_users.get(uid='48300441')
-		print('thisguy.User:' + str(thisguy.get().uid))
+		print('this id' + str(ids))
 		try:
 			thisguy = social_users.get(uid=ids)
+			print('this guy:')
+			print(thisguy)
+			print('this guy User:')
+			print(thisguy.user)
+			thisuser = thisguy.user
+			#print(social_users.get.all())
 			#if they are users check if they are upfo
 			#if they are, add to an upfo list
-			print('got thisguy as existing:' + str(thisguy))
+			print('got thisguy as existing:' + str(social_users.get(uid=ids)))
+			#print('upfo status: ' + str(.get_profile().is_upfo))
 			try:
-				thisuser = users.get(Username = thisguy.User)
-				if thisguy.get_profile().is_upfo == True:
+				if thisuser.get_profile().is_upfo == True:
 					print("and he's upfo")
-					upfos.append(thisguy)
+					upfos.append(friend)
 				#if they're not, add to a user list
 				else:
 					print("appending to users list")
-					users.append(thisguy)
+					users.append(friend)
 			except: 
 				print("couldn't get thisuser profile by Username")
-			
 			
 		except:
 			#if the user can't be found in the database, he's a non-user...
 			nonusers.append(friend)
 			print(' appending to non-user')
-	
+	print('nonusers: ')
+	print(nonusers)
+	print('users: ')
+	print(users)
+	print('upfos: ')
+	print(upfos)
 	user_lists = {'upfos': upfos, 'users': users, 'nonusers': nonusers }
 	return user_lists
 		
