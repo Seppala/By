@@ -1,10 +1,16 @@
 {% extends "base.html" %}
 
-{% block heading %}Meet your friends more.{% endblock %}
-
 {% block content %}
-<button class="btn large primary">I'm up for something</button>
-<p class="description">I want you to meet more of your friends more often. Like in a village. Just press the blue button and let your friends know that you're up for something. You need to log-in with facebook first. We will never post anything to Facebook without your approval. 
+<h1>The By App:</h1>
+<h2>Meet more friends</h2>
+<div class="row-fluid">
+	<div class="span12">
+		<p class="text">
+		See when your friends are available and tell them when you are. 
+		</p>
+	</div>
+</div>
+
 <div>
 
   {% for name in social_auth.backends.oauth2 %}

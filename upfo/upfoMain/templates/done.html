@@ -13,49 +13,59 @@
     <p class="error">{{ error_msg }}</p>
   {% endif %}
 <section id="description">
-	<h1>Meet your friends more</h1>
-<div> 
-  <a rel="nofollow" class="logout" href="/logout/">Logout</a>
-</div>
+	<div> 
+	  <a rel="nofollow" class="logout" href="/logout/">Logout</a>
+	</div>
+	<h1 class="by">By.</h1>
 
 {% if not user.get_profile.is_upfo %}
-
-<button class="btn btn-large btn-primary" onClick="window.location='/turn'">
+<h6>Click to tell your friends you're up for something</h6>
+<button class="btn2 btn-large btn-primary" onClick="window.location='/turn'">
 	I'm up for something</button>
 {% else %}
-<h3>You're up for something!</h3>
-<h6>Registered</h6>
+<h6>You're up for something.</h6>
+
 	<button class="btn btn-large btn-success" onClick="window.location='/turn'">
 		Click to cancel</button>
 {% endif %}
-	
-	
+<h5 class="cleargreen">Refresh friend list<h5>
+
 	</button>
-<div class="row-fluid">
+<div class="row">
 <div class="span12">
-<p>I want you to meet more of your friends more often. Like in a village. Just press the blue button and let your friends know that you're up for something. You need to log-in with facebook first. We will never post anything to Facebook without your approval. </p>
 </div>
 </div>
 </section>
-<div>
 	<h3>Your friends that are available now</h3>
+<div class="row">
+	<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in upfos %}
 		<tr><td>{{ friend.name }}</td></tr>
 		{% endfor %}
 	</table>
+	</div>
+	</div>
 	<h3>Friends already using By:</h3>
+<div class="row">
+	<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in users %}
 		<tr><td>{{ friend.name }}</td></tr>
 		{% endfor %}
 	</table>
+	</div>
+	</div>
 	<h3>Friends not yet on By:</h3>
+	<div class="row">
+		<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in nonusers %}
 		<tr><td>{{ friend.name }}</td></tr>
 		{% endfor %}
 	</table>
+	</div>
+	</div>
 </div>
 <div>
 {% if social_auth.associated %}

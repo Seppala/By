@@ -13,7 +13,7 @@ p {
   line-height: @baseLineHeight;
   small {
     font-size: @baseFontSize - 2;
-    color: @grayLight;
+    color: rgb(216,216,216);
   }
 }
 .lead {
@@ -23,13 +23,21 @@ p {
   line-height: @baseLineHeight * 1.5;
 }
 
+.text {
+	color: rgb(216,216,216);
+}
+
+.cleargreen {
+	color: @cleargreen
+}
+
 // HEADINGS
 // --------
+
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-weight: bold;
-  color: @grayDark;
   text-rendering: optimizelegibility; // Fix the character spacing for headings
   small {
     font-weight: normal;
@@ -37,21 +45,27 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 h1 {
+  color: @cleargreen;
   font-size: 30px;
   line-height: @baseLineHeight * 2;
+	margin-bottom: 15px;
+	margin-top:10px;
   small {
     font-size: 18px;
   }
 }
 h2 {
   font-size: 24px;
+	color: @clearred;
   line-height: @baseLineHeight * 2;
+	margin-bottom: 10px;
   small {
     font-size: 18px;
   }
 }
 h3 {
   line-height: @baseLineHeight * 1.5;
+	color: @grayLighter;
   font-size: 18px;
   small {
     font-size: 14px;
