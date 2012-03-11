@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="bootstrap-responsive.css" rel="stylesheet">
+	<link href="bootstrap.css" rel="stylesheet">
+</head>
+<body>
+	<div class="container-fluid">
 {% extends "base.html" %}
 
 {% block heading %}{% endblock %}
@@ -31,37 +39,37 @@
 <h5 class="cleargreen">Refresh friend list<h5>
 
 	</button>
-<div class="row">
+<div class="row-fluid">
 <div class="span12">
 </div>
 </div>
 </section>
 	<h3>Your friends that are available now</h3>
-<div class="row">
+<div class="row-fluid">
 	<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in upfos %}
-		<tr><td>{{ friend.name }}</td></tr>
+		<tr><td>{{ friend.name }}</td><td><button class="btn btn-small btn-warning"><i class="icon-eye-open icon-white"></i> unhide</button></td><td><button class="btn btn-small"><i class="icon-ban-circle"></i> hide</button></td></tr>
 		{% endfor %}
 	</table>
 	</div>
 	</div>
 	<h3>Friends already using By:</h3>
-<div class="row">
+<div class="row-fluid">
 	<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in users %}
-		<tr><td>{{ friend.name }}</td></tr>
+		<tr><td>{{ friend.name }}</td><td><button class="btn btn-small btn-warning"><i class="icon-eye-open icon-white"></i> unhide</button></td><td><button class="btn btn-small"><i class="icon-ban-circle"></i> hide</button></td></tr>
 		{% endfor %}
 	</table>
 	</div>
 	</div>
 	<h3>Friends not yet on By:</h3>
-	<div class="row">
+	<div class="row-fluid">
 		<div class="span12">
 	<table class="table table-condensed">
 		{% for friend in nonusers %}
-		<tr><td>{{ friend.name }}</td></tr>
+		<tr><td>{{ friend.name }}</td><td><button class="btn btn-small btn-primary"><i class="icon-heart icon-white"></i> Invite</button></td><td><button class="btn btn-small"><i class="icon-ban-circle"></i> hide</button></td></tr>
 		{% endfor %}
 	</table>
 	</div>
@@ -81,3 +89,7 @@
   </ul>
 {% endif %}
 {% endblock %}
+
+</div>
+</body>
+</html>
