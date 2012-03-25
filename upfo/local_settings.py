@@ -1,0 +1,1 @@
+MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/By/upfo/media/'

@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+import threading
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
 from django.template import RequestContext
@@ -21,46 +22,42 @@ def home(request):
     else:
         return render_to_response('home.html', {'version': version},
                                   RequestContext(request))
+#adds a user to the hidden user list 
+#@login_required
+#def hide(request, id):
+    #add id to hidden user list
+ #   u = request.user
+  #  ii = u.get_profile()
+
 @login_required
-def turn_true(request):
-    try:
-        friends_list = get_friends(request.user)
-        ii = request.user.get_profile()
+def list_page(request):
+    #Turn upfo true or false
+    turn_true(request)
     
-        print(ii.is_upfo) #Here it is False
-        #ii.is_upfo = True
-        print(request.user.get_profile().is_upfo) #Does actually change to True
-        if ii.is_upfo == None or ii.is_upfo == False:
-            ii.is_upfo = True
-            #print('made it true..')
-            ii.save()
-        elif ii.is_upfo == True:
-            #print('so now it comes here...')
-            ii.is_upfo = False
-            ii.save()
-        
-        """Breaks friends list into three: upfo, users, and nonusers"""
-        friends_lists = friends_are_users(friends_list)
-        print('in views: friends_lists:')
-        #print(nonusers)
-      
-        upfos = friends_lists['upfos']
-        users = friends_lists['users']
-        nonusers = friends_lists['nonusers']
+    #if upfo is true, set timer to turn upfo to false
+    ii = request.user
+    prof = ii.get_profile()
+    
+    #if prof.is_upfo is True:
+     #   t = threading.Timer(30.0, turn_true(request))
+      #  t.start() # after 30 seconds, "hello, world" will be printed
+    #else:
+     #   pass
+    
+    friends_list = get_friends(request.user)
+    """Breaks friends list into three: upfo, users, and nonusers"""
+    friends_lists = friends_are_users(friends_list)
 
-        print('in views: nonusers:')
-        print(nonusers)
-        print('in views: upfos:')
-        print(upfos)
-        print('in views: users:')
-        print(users)
+    upfos = friends_lists['upfos']
+    users = friends_lists['users']
+    nonusers = friends_lists['nonusers']
 
-        ctx = {'version': version,
-           'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}
-        return render_to_response('done.html', ctx, RequestContext(request))
+    ctx = {'version': version,
+       'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}
+    return render_to_response('turn.html', ctx, RequestContext(request))
 
-    except:
-        return render_to_response('done.html', RequestContext(request))
+    #except:
+     #   return render_to_response('turn.html', RequestContext(request))
 
 @login_required
 def done(request):
@@ -69,17 +66,10 @@ def done(request):
         friends_list = get_friends(request.user)
         #"""Breaks friends list into three: upfo, users, and nonusers"""
         friends_lists = friends_are_users(friends_list)
-        print(friends_lists)
+        #print(friends_lists)
         upfos = friends_lists['upfos']
         users = friends_lists['users']
-        nonusers = friends_lists['nonusers']
-        print('in views: nonusers:')
-        #print(nonusers)
-        print('in views: upfos:')
-        #print(upfos)
-        print('in views: users:')
-        #print(users)
-        
+        nonusers = friends_lists['nonusers']        
     
         ctx = {'version': version,
             'last_login': request.session.get('social_auth_last_login_backend'), 'upfos': upfos, 'users': users, 'nonusers': nonusers}

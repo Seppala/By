@@ -56,6 +56,7 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
+# MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
 MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
@@ -220,3 +221,8 @@ FOURSQUARE_CONSUMER_KEY			  = ''
 FOURSQUARE_CONSUMER_SECRET		  = ''
 
 AUTH_PROFILE_MODULE = 'upfoMain.CustomUser'
+
+#try:
+#    from local_settings import *
+#except ImportError:
+#    pass
