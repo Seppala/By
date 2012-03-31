@@ -1,7 +1,7 @@
 from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 
-from upfoMain.views import home, done, logout, error, channel, printFriends, friendson, turn_true, list_page
+from upfoMain.views import home, done, logout, error, channel, printFriends, friendson, turn_true, make_upfo, del_upfo
 
 
 admin.autodiscover()
@@ -18,7 +18,8 @@ urlpatterns = patterns('',
 	url(r'^print/', printFriends, name='printFriends'),
 	url(r'^friends/', friendson, name='friendson'),
     url(r'', include('social_auth.urls')),
-	url(r'^turn/$', list_page, name='list_page'),
+	url(r'^make_upfo/$', make_upfo, name='make_upfo'),
+	url(r'^del_upfo/$', del_upfo, name='del_upfo'),
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
 	{'document_root': '/Users/rvrseppala/Development/Byy/by/upfo/media'}),
 	
