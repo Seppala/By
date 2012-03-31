@@ -7,7 +7,7 @@ Twisted==11.0.0
 amqplib==1.0.2
 anyjson==0.3.1
 bdist-mpkg==0.4.4
-bonjour-py==0.3
+# bonjour-py==0.3
 celery==2.5.1
 django-social-auth==0.6.0
 httplib2==0.7.2
