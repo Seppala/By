@@ -1,3 +1,4 @@
+import os
 # Django settings for upfo project.
 
 DEBUG = False
@@ -30,6 +31,19 @@ if DEBUG == True:
 # system time zone.
 TIME_ZONE = 'America/Chicago'
 
+
+#Adding paths
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    os.path.join(SITE_ROOT, 'templates')
+    
+)
+
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -47,12 +61,12 @@ USE_L10N = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 #MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
-MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
+#MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://localhost/media/'
+#MEDIA_URL = 'media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -62,7 +76,7 @@ MEDIA_URL = 'http://localhost/media/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-#STATIC_URL = '/static/'
+STATIC_URL = '/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -103,12 +117,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'upfo.urls'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -174,6 +182,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
+	'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'social_auth.context_processors.social_auth_by_type_backends',
 )
@@ -219,7 +228,6 @@ AWS_ACCESS_KEY_ID = 'AKIAIC3ODO5IXDRKAMVQ'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'by_static'
 STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-MEDIA_ROOT = STATIC_URL
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 try:
