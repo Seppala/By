@@ -1,25 +1,15 @@
 # Django settings for upfo project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Riku', 'riku@seppa.la'),
+    ('Riku', 'riku@seppa.la'),
 )
 
 MANAGERS = ADMINS
 if DEBUG == True:
-	DATABASES = {
-		'default': {
-			'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-	        'NAME': 'upfo.db',                      # Or path to database file if using sqlite3.
-	        'USER': '',                      # Not used with sqlite3.
-	        'PASSWORD': '',                  # Not used with sqlite3.
-	        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-	        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-		}
-	}
-else:
+	
 	DATABASES = {
 	'default': {
 	'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -56,8 +46,8 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-# MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
-#MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
+#MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
+MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -77,7 +67,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+#ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -137,6 +127,7 @@ INSTALLED_APPS = (
 	'jsonhandler',
 	'facebookapi',
 	'fbtestusers',
+	'storages',
 )
 
 
@@ -196,8 +187,8 @@ LOGIN_ERROR_URL = '/login-error/'
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 
-FACEBOOK_APP_ID = '200047203426040'
-FACEBOOK_API_SECRET = 'efbddb138180cb38af95785c866f9b5d'
+FACEBOOK_APP_ID = '377303882291538'
+FACEBOOK_API_SECRET = '776972d59b27257cde4c6458bc47067b'
 TWITTER_CONSUMER_KEY			  = ''
 TWITTER_CONSUMER_SECRET			  = ''
 #FACEBOOK_APP_ID					  = '126197457491070'
@@ -221,6 +212,14 @@ FOURSQUARE_CONSUMER_KEY			  = ''
 FOURSQUARE_CONSUMER_SECRET		  = ''
 
 AUTH_PROFILE_MODULE = 'upfoMain.CustomUser'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
+AWS_ACCESS_KEY_ID = 'AKIAIC3ODO5IXDRKAMVQ'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'by_static'
+STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
+ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 try:
     from local_settings import *
