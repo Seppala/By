@@ -5,7 +5,7 @@ from jsonhandler.jsonhelpers import *
 def get_friends(user):
 
 	#get users uid
-	#print(user.social_auth.get().extra_data)
+	print(user.social_auth.get().extra_data)
 	dict = user.social_auth.get().extra_data
 	access_token = dict['access_token']
 	print('access_token:')
