@@ -22,7 +22,7 @@ urlpatterns = patterns('',
 	url(r'^make_upfo/$', make_upfo, name='make_upfo'),
 	url(r'^del_upfo/$', del_upfo, name='del_upfo'),
 	url(r'^media/(?P<path>.*)$', 'django.views.static.serve', 
-	{'document_root': settings.STATIC_URL}),
+	{'document_root': settings.STATIC_ROOT}),
 	#{'document_root': '/Users/rvrseppala/Development/Byy/by/upfo/media'}),
 	
 )
