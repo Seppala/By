@@ -1,3 +1,5 @@
+../.DS_Store
+../upfo_bu/
 *.db
 bin
 build
