@@ -4,4 +4,5 @@ build
 include
 lib
 .Python
+upfo/local_settings.py
 *.pyc
