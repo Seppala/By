@@ -10,13 +10,15 @@
 		<div class="row-fluid">
     		<div class="span12">
 				<div class="hero-unit">
+					<div class="logo">
 						<img style="height: 30px; width: 40px; margin-right: -10px; margin-top: 12px; float: right;" src="{{ STATIC_URL}}logo1.png"></img>
+					</div>
 						<h1>By</h1>
 					
 						<p>Who's up for something?</p>
 						
 						{% for name in social_auth.backends.oauth2 %}
-						    <a class="fb_button fb_button_medium" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
+						    <a class="fb_button fb_button_large" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
 						  {% endfor %}
 				</div>	
 			</div>
