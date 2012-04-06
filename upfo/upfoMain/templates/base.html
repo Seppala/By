@@ -4,8 +4,8 @@
     <title>By App - Turning cities into villages</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.css">
-    <link rel="stylesheet/less" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.less">
-	<script src="/{{ STATIC_URL }}less-1.2.1.min.js" type="text/javascript"></script>
+    <!--- <link rel="stylesheet/less" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.less"> -->
+	<!---<script src="/{{ STATIC_URL }}less-1.2.1.min.js" type="text/javascript"></script>-->
 	<script type="text/javascript">
 	function sendRequestToRecipients(id) {
 	  FB.ui({method: 'apprequests',
@@ -31,7 +31,7 @@
 	<script>
 	  window.fbAsyncInit = function() {
 	    FB.init({
-	      appId      : {{ APP_ID }}, // App ID
+	      appId      : 200047203426040, // App ID
 	      channelUrl : '//WWW.UPFO.FI/channel/', // Channel File
 	      status     : true, // check login status
 	      cookie     : true, // enable cookies to allow the server to access the session
