@@ -1,16 +1,25 @@
-import os
 # Django settings for upfo project.
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    ('Riku', 'riku@seppa.la'),
+    # ('Riku', 'riku@seppa.la'),
 )
 
 MANAGERS = ADMINS
 if DEBUG == True:
-	
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+	        'NAME': 'upfo.db',                      # Or path to database file if using sqlite3.
+	        'USER': '',                      # Not used with sqlite3.
+	        'PASSWORD': '',                  # Not used with sqlite3.
+	        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+	        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+		}
+	}
+else:
 	DATABASES = {
 	'default': {
 	'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
@@ -31,19 +40,6 @@ if DEBUG == True:
 # system time zone.
 TIME_ZONE = 'America/Chicago'
 
-
-#Adding paths
-SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
-
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    os.path.join(SITE_ROOT, 'templates')
-    
-)
-
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
 LANGUAGE_CODE = 'en-us'
@@ -60,19 +56,19 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-#MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
-#MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
+# MEDIA_ROOT = '/Users/rvrseppala/Development/Byy/by/upfo/media/'
+MEDIA_ROOT = '/Users/rikuseppala/Development/upfo/media/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-#MEDIA_URL = 'media/'
+MEDIA_URL = 'http://localhost/media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-#STATIC_ROOT = ''
+STATIC_ROOT = ''
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -81,7 +77,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-#ADMIN_MEDIA_PREFIX = '/static/admin/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
@@ -118,6 +114,12 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'upfo.urls'
 
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -135,7 +137,6 @@ INSTALLED_APPS = (
 	'jsonhandler',
 	'facebookapi',
 	'fbtestusers',
-	'storages',
 )
 
 
@@ -182,7 +183,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.media',
-	'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
     'social_auth.context_processors.social_auth_by_type_backends',
 )
@@ -196,8 +196,8 @@ LOGIN_ERROR_URL = '/login-error/'
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
 SOCIAL_AUTH_ASSOCIATE_URL_NAME = 'socialauth_associate_complete'
 
-FACEBOOK_APP_ID = '377303882291538'
-FACEBOOK_API_SECRET = '776972d59b27257cde4c6458bc47067b'
+FACEBOOK_APP_ID = '200047203426040'
+FACEBOOK_API_SECRET = 'efbddb138180cb38af95785c866f9b5d'
 TWITTER_CONSUMER_KEY			  = ''
 TWITTER_CONSUMER_SECRET			  = ''
 #FACEBOOK_APP_ID					  = '126197457491070'
@@ -222,15 +222,7 @@ FOURSQUARE_CONSUMER_SECRET		  = ''
 
 AUTH_PROFILE_MODULE = 'upfoMain.CustomUser'
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-STATICFILES_STORAGE = DEFAULT_FILE_STORAGE
-AWS_ACCESS_KEY_ID = 'AKIAIC3ODO5IXDRKAMVQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'by_static'
-STATIC_URL = '//s3.amazonaws.com/%s/' % AWS_STORAGE_BUCKET_NAME
-ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
-
-try:
-    from local_settings import *
-except ImportError:
-    pass
+#try:
+#    from local_settings import *
+#except ImportError:
+#    pass
