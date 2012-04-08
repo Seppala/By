@@ -387,9 +387,10 @@ h2 small {
   font-size: 18px;
 }
 h3 {
-  line-height: 27px;
+  line-height: 22px;
   color: #eeeeee;
   font-size: 18px;
+	margin-top:5px;
 }
 h3 small {
   font-size: 14px;
