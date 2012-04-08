@@ -28,8 +28,24 @@
 			<h4 class="red">Click to tell your friends you're up for something</h4>
 	</div>
 	<div class="row-fluid">
-		<button class="btn2 btn-large btn-primary" onClick="window.location='/make_upfo/'">I'm up for something</button>
+<!--		<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/'">I'm up for something</button>-->
+	<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/'" type= "submit">I'm up for something</button>
+
 	</div>
+	<h5 class="cleargreen">Share on Facebook:<h5>
+	<div class="row-fluid">
+	<form>
+	    <div class="mx-button">
+	        <input type="radio" name="mx" id="button1"  value="yes" checked>
+	        <label for="button1" unselectable>Do</label>
+	    </div>
+	    <div class="mx-button">
+	        <input type="radio" name="mx" id="button2" value="no">
+	        <label for="button2" unselectable>Don't</label>
+	    </div>
+	</div>
+	</form>
+	
 {% else %}
 	<div class="row-fluid">
 		<h4 class="red">You're up for something.</h4>
@@ -40,7 +56,6 @@
 	</div>
 {% endif %}
 
-	<h5 class="cleargreen">Refresh friend list<h5>
 	<p>
     	<input type="button" onClick="sendRequestViaMultiFriendSelector(); return false;" value="Invite friends"/>
     </p>
@@ -76,4 +91,41 @@
   </ul>
 {% endif %}
 </div>
+<script>
+
+	function go_upfo(e) {
+	    if (e.preventDefault) e.preventDefault();
+		
+			if( $('input[value=yes]').is(':checked') ){
+			      fb_share()
+			}
+	
+	    /* do what you want with the form */
+
+	    // You must return false to prevent the default form behavior
+	
+	    return false;
+	}
+	
+	var form = document.getElementById('upfo');
+	if (form.attachEvent) {
+	    form.attachEvent("submit", go_upfo);
+	} else {
+	    form.addEventListener("submit", go_upfo);
+	}
+
+	function fb_share() {
+	  	FB.ui({ method: 'feed', 
+		            message: 'Facebook for Websites is super-cool'
+					});
+	
+	}
+	
+	var fb_post = function() {
+		
+	}
+
+	$("#upfo").click(go_upfo);
+	
+</script>
 {% endblock %}

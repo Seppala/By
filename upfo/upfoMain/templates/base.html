@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
+<!-- ><html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"> -->
+<html>
   <head>
     <title>By App - Turning cities into villages</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js"></script>
+
+	<!-- <script type="text/javascript" src="/{{STATIC_URL}}jquery-1.7.2.min.js"></script> -->
 	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.css">
 	<style>
 		.background {
-		  background-image: url({{ STATIC_URL }}bg.png);
+		  background-image: url(/{{ STATIC_URL }}bg.png);
 		}
 	
 		body {
-			background-image: url({{ STATIC_URL }}bg_light.gif);
+			background-image: url(/{{ STATIC_URL }}bg_light.gif);
 		}
 	</style>
     <!--- <link rel="stylesheet/less" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.less"> -->
