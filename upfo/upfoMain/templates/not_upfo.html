@@ -60,7 +60,7 @@
 	<div class="span12">
 	
 		<p>
-			<a href="#" onclick="fb_share()"><h4 class="cleargreen" style="text-decoration: underline;">Post to Facebook<h4></a><br>
+			<a href="#" class="blue" onclick="fb_share()"><h4 class="blue" style="text-decoration: underline;">Post to Facebook<h4></a><br>
 		</p>
 		
 	</div>
@@ -72,9 +72,7 @@
 		</div>
 	</div>
 	
-	
-		
-	
+
 	<div class="row-fluid">
 		<div class="span12">
 			<p>&nbsp;</p>
@@ -83,10 +81,11 @@
 
 </div>
 
-		<h3>Your friends that are available now</h3>
+		<h3>Your friends that are up for something now</h3>
 		<div class="row-fluid">
 			<div class="span12">
 				<table class="table table-condensed">
+				{% if upfos or users %}
 					{% if upfos%}
 						{% for friend in upfos %}
 						<tr><td>{{ friend.name }}</td></tr>
@@ -99,28 +98,25 @@ None of your friends are on By yet! Invite them below or bulk-invite here: <a hr
 						{% endif %}
 						
 					{% endif %}
+				{% else %}
+					<p>None of your friends are on By yet! You can invite people from the list below person-by-person or bulk-invite people here: <a href="#" onclick='sendRequestViaMultiFriendSelector()'>Bulk Invite</a></p>
+				{% endif %}
+				
 				</table>
 			</div>
 		</div>
+{% if users %}
 		<h3>Friends already using By:</h3>
 	<div class="row-fluid">
 		<div class="span12">
 		<table class="table table-condensed">
-		{% if users%}
 			{% for friend in users %}
 			<tr><td>{{ friend.name }}</td></tr>
 			{% endfor %}
-		{% else %}
-		 	{% if upfos %}
-There are no other friends on By yet! Invite them below or bulk-invite here: <a href="#" onclick='sendRequestViaMultiFriendSelector()'>Bulk Invite</a>
-			{% else %}
-None of your friends are on By yet! Invite them below or bulk-invite here: <a href="#" onclick='sendRequestViaMultiFriendSelector()'>Bulk Invite</a>
-			{% endif %}
-		
-		{% endif %}
 		</table>
 		</div>
 		</div>
+{% endif %}
 		<h3>Friends not yet on By:</h3>
 		<div class="row-fluid">
 			<div class="span12">

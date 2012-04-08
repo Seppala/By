@@ -10,7 +10,7 @@
 				<table class="table table-condensed">
 		{% for friend in upfos %}
 					<tr><td><p>{{ friend.name }}</p></td><td><button class="btn btn-small btn-warning"><i class="icon-eye-open icon-white"></i> unhide</button></td><td><button class="btn btn-small" onClick="window.location='/hide/{{ friend.id }}'"><i class="icon-ban-circle"></i> hide</button></td></tr>
-			{% endfor %}
+		{% endfor %}
 				</table>
 			</div>
 		</div>
