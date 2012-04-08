@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div>
+	To quit by and destroy your data:
+<div>
+{% if social_auth.associated %}
+  <h3>Disconnect facebook</h3>
+  <ul>
+  {% for type, accounts in social_auth.associated.items %}
+    {% for account in accounts %}
+    <li>
+        <span class="disconnect"><a href={% url socialauth_disconnect_individual account.provider account.id %}>{{ account.provider|title }} (ID {{ account.id }})</a></span>
+    </li>
+    {% endfor %}
+  {% endfor %}
+  </ul>
+{% endif %}
+</div>
+{% endblock %}
