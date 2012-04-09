@@ -23,6 +23,14 @@
 	color: #555;
 }
 
+.yellow {
+	color: #F7E967;
+}
+
+.lightblue {
+	color: #CAFCD8;
+}
+
 .lpgray {
 	text-shadow: 0px 2px 2px rgb(225,225,225);
 }
@@ -30,6 +38,26 @@
 .lpblue {
 	text-shadow: 0px 2px 3px #4EBAFF;
 }
+
+.by {
+	text-decoration:none;
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 36px;
+	margin-bottom: 15px;
+	margin-top: 10px;
+	display:block;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+}
+
+.by:hover {
+	text-decoration:none;
+	color: #fc575e;
+}
+
 
 .container-fluid {
   padding-left: 20px;
@@ -143,7 +171,8 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-  color: #ffc40d;
+	color: #F7E967;
+  /*color: #ffc40d;*/
   background-color: #ffffff;
 }
 a {

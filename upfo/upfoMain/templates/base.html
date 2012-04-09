@@ -67,7 +67,28 @@
 	     d.getElementsByTagName('head')[0].appendChild(js);
 	   }(document));
 	</script>
-      {% block content %}{% endblock %}
+	<div class="background">
+	{% if messages %}
+	    {% for msg in messages %}
+	        <p class="error">{{ msg.message }} ({{ msg.extra_tags }})</p>
+	    {% endfor %}
+	  {% endif %}
+	  {% if error_msg %}
+	    <p>Details:</p>
+	    <p class="error">{{ error_msg }}</p>
+	  {% endif %}
+	<section id="description">
+		<div> 
+
+		</div>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<a class="by red" href="/">By</a>
+		</div>
+     {% block content %}{% endblock %}
+
+</div><!-- Ends container-fluid -->
+</div><!-- Ends div "background" -->
 
 <div class="container-fluid">
 	<div class="span12">

@@ -4,24 +4,7 @@
 {% block heading %}{% endblock %}
 
 {% block content %}
-<div class="background">
-{% if messages %}
-    {% for msg in messages %}
-        <p class="error">{{ msg.message }} ({{ msg.extra_tags }})</p>
-    {% endfor %}
-  {% endif %}
-  {% if error_msg %}
-    <p>Details:</p>
-    <p class="error">{{ error_msg }}</p>
-  {% endif %}
-<section id="description">
-	<div> 
-	  
-	</div>
-<div class="container-fluid">
-	<div class="row-fluid">
-		<h1 class="by red">By</h1>
-	</div>
+
 
 {% if not user.get_profile.is_upfo %}
 	<div class="row-fluid">
@@ -34,10 +17,15 @@
 	<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/'" type= "submit">I'm up for something</button>
 
 	</div>
+	<div class="row-fluid">
+		<div class="span12">
+			<p>&nbsp;</p>
+		</div>
+	</div>
 
 <div class="row-fluid">
 	<div class="span12">
-		<h3>Your friends that are up for something now</h3>
+		<h3>Your friends that are up for something</h3>
 	</div>
 </div>
 <div class="row-fluid">
@@ -136,17 +124,17 @@ None of your friends are on By yet! Invite them below or bulk-invite here: <a hr
 	</div>
 	
 {% endif %}
-	
-</div>
-</section>
-
-	
-</div>
 
 {% block dynamic %}{% endblock %}    
 
 <script>
 
+//Ajax call to change status.
+function turn_upfo()
+
+//
+
+// Not used now, would automatically pop up a share dialog when a radio button is checked.
 	function go_upfo(e) {
 	    if (e.preventDefault) e.preventDefault();
 		

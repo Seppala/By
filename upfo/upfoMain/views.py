@@ -30,6 +30,11 @@ def home(request):
   #  ii = u.get_profile()
 
 @login_required
+def settingpage(request):
+	
+	return render_to_response('settings.html', RequestContext(request))
+
+@login_required
 def make_upfo(request):
     
     profile = request.user.get_profile()
