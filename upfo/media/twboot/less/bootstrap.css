@@ -58,6 +58,23 @@
 	color: #fc575e;
 }
 
+.invite:active,
+.invite:visited {
+	background-color: #0044cc
+	
+} 
+
+.logo-wrapper {
+	background-color: rgba(0,0,0,0.65);
+	padding-top:2px;
+	padding-left:5px;
+	-webkit-border-radius: 3px;
+	  -moz-border-radius: 3px;
+	  border-radius: 3px;
+	margin-bottom: 5px;
+	width:220px;
+}
+
 
 .container-fluid {
   padding-left: 20px;

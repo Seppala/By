@@ -1,40 +1,5 @@
 {% extends "not_upfo.html" %}
 
 {% block dynamic %}
-<section id="dynamic">
-<div class="container-fluid">
-
-		<h3>Your friends that are available now</h3>
-		<div class="row-fluid">
-			<div class="span12">
-				<table class="table table-condensed">
-		{% for friend in upfos %}
-					<tr><td><p>{{ friend.name }}</p></td><td><button class="btn btn-small btn-warning"><i class="icon-eye-open icon-white"></i> unhide</button></td><td><button class="btn btn-small" onClick="window.location='/hide/{{ friend.id }}'"><i class="icon-ban-circle"></i> hide</button></td></tr>
-		{% endfor %}
-				</table>
-			</div>
-		</div>
-		<h3>Friends already using By:</h3>
-	<div class="row-fluid">
-		<div class="span12">
-		<table class="table table-condensed">
-			{% for friend in users %}
-			<tr><td>{{ friend.name }}</td><td><button class="btn btn-small btn-warning"><i class="icon-eye-open icon-white"></i> unhide</button></td><td><button class="btn btn-small" onClick="window.location='/hide/{{ friend.id }}'"><i class="icon-ban-circle"></i> hide</button></td></tr>
-			{% endfor %}
-		</table>
-		</div>
-		</div>
-		<h3>Friends not yet on By:</h3>
-		<div class="row-fluid">
-			<div class="span12">
-		<table class="table table-condensed">
-			{% for friend in nonusers %}
-		
-			<tr><td><p>{{ friend.name }}; {{ friend.id }}</p></td><td><input type="button" class="btn btn-small btn-primary" onClick="sendRequestToRecipients({{ friend.id }}); return false;" value="Invite"><i class="icon-heart icon-white"></i></input></td><td><button class="btn btn-small" onClick="window.location='/hide/{{ friend.id }}'"><i class="icon-ban-circle"></i> hide</button></td></tr>
-			{% endfor %}
-		</table>
-		</div>
-	</div>
-</div>
 
 {% endblock %}

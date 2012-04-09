@@ -33,6 +33,15 @@ def home(request):
 def settingpage(request):
 	
 	return render_to_response('settings.html', RequestContext(request))
+	
+def legal(request):
+
+	return render_to_response('legal.html', RequestContext(request))
+	
+def about(request):
+
+	return render_to_response('about.html', RequestContext(request))
+
 
 @login_required
 def make_upfo(request):
