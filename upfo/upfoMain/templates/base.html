@@ -33,14 +33,32 @@
 	function sendRequestToRecipients(id) {
 	  FB.ui({method: 'apprequests',
 	    message: 'My Great Request',
-	    to: id,
-		redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
+	    to: id
+		//redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
 	  }, requestCallback);
 	}
+	/*
 	function sendRequestViaMultiFriendSelector() {
 	  FB.ui({method: 'apprequests',
 	    message: 'My Great Request',
 	  }, requestCallback);
+	}*/
+	
+	function sendRequestViaMultiFriendSelector() {
+		FB.ui({
+		        method:'fbml.dialog', 
+		            fbml: (
+		                '<fb:request-form action="http://{{site.domain}}" method="post" invite="true" type="{{ site.name }}" ' +
+		'content="help the world by spreading good ideas. Join the move! <fb:req-choice url=\'http://{{site.domain}}?facebook_invitation=1\' label=\'Accept\' />" >'
+
+		 + "{% csrf_token %}"+  
+
+
+		'<fb:multi-friend-selector showborder="false" bypass="cancel" actiontext="Invite your friends to join {{ site.name }}" /> '+
+		                '</fb:request-form>'
+		                ),
+		                size: { width:640, height:480}, width:640, height:480
+		            });
 	}
 	//Callback is required
 	function requestCallback(response) {
