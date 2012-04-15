@@ -60,6 +60,10 @@ def make_upfo(request):
     
     return render_to_response('is_upfo.html', response, RequestContext(request))
 
+#@csfr_exempt
+def facebook(request):
+	return render_to_response('facebook.html', RequestContext(request))
+
 @login_required
 @csrf_exempt
 def del_upfo(request):

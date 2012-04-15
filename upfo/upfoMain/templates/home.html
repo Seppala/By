@@ -17,11 +17,12 @@
 					-->
 						<h1>By</h1>
 					<div class="logo-wrapper">
-						<p>Who's up for something?</p>
+						<h2>Who's up for something?</h2>
 					</div>	
 						{% for name in social_auth.backends.oauth2 %}
 						    <a class="fb_button fb_button_large" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
 						  {% endfor %}
+						<p style="margin-top:10px">We'll never post anything to Facebook without asking you first.</p>
 						
 				</div>	
 			</div>

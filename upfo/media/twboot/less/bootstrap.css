@@ -75,6 +75,10 @@
 	width:220px;
 }
 
+.facebook {
+	color:black;
+	background-color:white;
+}
 
 .container-fluid {
   padding-left: 20px;
@@ -3661,11 +3665,17 @@ a.thumbnail:hover {
   line-height: 1;
   letter-spacing: -1px;
 }
-.hero-unit p {
+.hero-unit h2 {
   font-size: 18px;
   font-weight: 200;
   line-height: 27px;
   color: #fc575e;
+}
+
+.hero-unit p {
+	font-size:14px;
+	line-height: 16px;
+	color: #CAFCD8;
 }
 .pull-right {
   float: right;

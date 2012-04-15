@@ -34,7 +34,7 @@
 	  FB.ui({method: 'apprequests',
 	    message: "wants to see when you're up for something! Join By and you can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
 	    to: id,
-		redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
+		redirect_uri: 'http://stark-moon-3372.herokuapp.com/facebook'
 	  }, requestCallback);
 	}
 
@@ -42,6 +42,7 @@
 	function sendRequestViaMultiFriendSelector() {
 	  FB.ui({method: 'apprequests',
 	    message: "Hi! I'd like to be able to see when you're up for something. Join By and we can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
+	redirect_uri: 'http://stark-moon-3372.herokuapp.com/facebook'
 	  }, requestCallback);
 	
 	}
@@ -119,6 +120,7 @@
 
 </div><!-- Ends container-fluid -->
 </div><!-- Ends div "background" -->
+{% block facebook %}{% endblock %}
 <div class="container-fluid">
 	<div class="span12">
 		<footer class="footer">
