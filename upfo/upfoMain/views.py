@@ -1,4 +1,5 @@
 from django.http import HttpResponseRedirect
+from django.views.decorators.csrf import csrf_exempt
 import threading
 from django.contrib.auth import logout as auth_logout
 from django.contrib.auth.decorators import login_required
@@ -100,6 +101,7 @@ def list_page(request):
      #   return render_to_response('turn.html', RequestContext(request))
 
 @login_required
+@csrf_exempt
 def done(request):
     #get profile so that you can check if the user is upfo
     profile = request.user.get_profile()

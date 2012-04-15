@@ -37,6 +37,7 @@
 		redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
 	  }, requestCallback);
 	}
+
 	/*
 	function sendRequestViaMultiFriendSelector() {
 	  FB.ui({method: 'apprequests',
@@ -57,7 +58,7 @@
 		 + "{% csrf_token %}"+  
 
 
-		'<fb:multi-friend-selector showborder="false" bypass="cancel" actiontext="Invite your friends to join {{ site.name }}" /> '+
+		'<fb:multi-friend-selector showborder="false" bypass="cancel" actiontext="Invite your friends to join {{ site.name }}" redirect_uri: 'http://stark-moon-3372.herokuapp.com/'/> '+
 		                '</fb:request-form>'
 		                ),
 		                size: { width:200, height:480}, width:200, height:480
