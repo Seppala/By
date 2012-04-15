@@ -48,7 +48,9 @@
 		FB.ui({
 		        method:'fbml.dialog', 
 		            fbml: (
+			
 		                '<fb:request-form action="https://stark-moon-3372.herokuapp.com/" method="post" invite="true" type="By App" ' +
+
 		'content="help the world by spreading good ideas. Join the move! <fb:req-choice url=\'http://{{site.domain}}?facebook_invitation=1\' label=\'Accept\' />" >'
 
 		 + "{% csrf_token %}"+  
