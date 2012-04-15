@@ -32,20 +32,20 @@
 	<script type="text/javascript">
 	function sendRequestToRecipients(id) {
 	  FB.ui({method: 'apprequests',
-	    message: 'My Great Request',
+	    message: "Hi! I'd like to be able to see when you're up for something. Join By and we can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
 	    to: id,
 		redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
 	  }, requestCallback);
 	}
 
-	/*
+	
 	function sendRequestViaMultiFriendSelector() {
 	  FB.ui({method: 'apprequests',
-	    message: 'My Great Request',
+	    message: "Hi! I'd like to be able to see when you're up for something. Join By and we can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
 	  }, requestCallback);
 	
-	}*/
-	
+	}
+	/*
 	function sendRequestViaMultiFriendSelector() {
 		FB.ui({
 		        method:'fbml.dialog', 
@@ -63,7 +63,7 @@
 		                ),
 		                size: { width:640, height:480}, width:640, height:480
 		            });
-	}
+	}*/
 	//Callback is required
 	function requestCallback(response) {
         // Handle callback here
