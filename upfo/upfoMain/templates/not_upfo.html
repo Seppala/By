@@ -48,7 +48,7 @@
 	<div class="span12">
 	
 		<p>
-			<a href="#" class="blue" onclick="fb_share()"><h4 class="blue" style="text-decoration: underline;">Post to Facebook<h4></a><br>
+			<a href="#" class="blue" onclick="publishStory()"><h4 class="blue" style="text-decoration: underline;">Post to Facebook<h4></a><br>
 		</p>
 		
 	</div>
@@ -169,5 +169,21 @@ function turn_upfo()
 
 	$("#upfo").click(go_upfo);
 	
+</script>
+<script>
+function publishStory() {
+  FB.ui({
+    method: 'feed',
+    name: "I'm using By to meet more friends in real life",
+    caption: "Who's up for something?",
+    description: "By let's you see who's up for something",
+    link: 'https://stark-moon-3372.herokuapp.com',
+    picture: '{{ STATIC_URL }}bylogo.png'
+  }, 
+  function(response) {
+    console.log('publishStory response: ', response);
+  });
+  return false;
+}
 </script>
 {% endblock %}
