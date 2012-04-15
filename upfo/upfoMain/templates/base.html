@@ -124,6 +124,18 @@
 <div class="container-fluid">
 	<div class="span12">
 		<footer class="footer">
+			<a href="#" onclick="sendRequest();">Send request</a><br>
+			<script>
+			function sendRequest() {
+			  FB.ui({
+			    method: 'apprequests',
+			    message: 'invites you to learn how to make your mobile web app social',
+			  }, 
+			  function(response) {
+			    console.log('sendRequest response: ', response);
+			  });
+			}
+			</script>
 			<table>
 				<tr>
 					{% if user.is_authenticated %}
@@ -146,6 +158,7 @@
 					</td>
 				</tr>
 			</table>
+			
 		</footer>
 	</div>
 </div>
