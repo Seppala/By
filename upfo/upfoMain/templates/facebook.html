@@ -1,18 +1,64 @@
-{% extends 'base.html' %}
+<html>
+<head>
+  <title>Hello World</title>
+</head>
+<body>
+	<div id="login">
+	   <p><button onClick="loginUser();">Login</button></p>
+	 </div>
+	 <div id="logout">
+	   <p><button  onClick="FB.logout();">Logout</button></p>
+	 </div>
 
-{% block facebook %}
-<div class="container-fluid">
-<div class="row-fluid">
-	<div class="span12">
-		<div class="facebook">
-	<h1 class="gray">The By App</h1>
-	<p>You know that situation when you want to go out and do something but you don't know who to call? Your closest friends are busy but you'd still like to do something? </p>
-	<p><b>By is the easiest way to see who's up for something. </b> You'll meet more friends, also friends you don't see that often.<p>
-		<p>
-			<a style="font-size: 18px;" class="blue" href="https://stark-moon-3372.herokuapp.com">Go to By</a>
-		</p>
-	</div>
-	</div>
-</div>
-</div> 
-{% endblock %}
+	<a href="#" onclick="sendRequest();">Send request</a><br>
+	<script>
+	function sendRequest() {
+	  FB.ui({
+	    method: 'apprequests',
+	    message: 'invites you to learn how to make your mobile web app social',
+	  }, 
+	  function(response) {
+	    console.log('sendRequest response: ', response);
+	  });
+	}
+	</script>
+	 <script>
+	   function loginUser() {    
+	     FB.login(function(response) { }, {scope:'email'});     
+	     }
+	 </script>
+	<div id="fb-root"></div>
+	<script>
+	  window.fbAsyncInit = function() {
+	    FB.init({
+	      appId      : '	377303882291538', // App ID
+	      channelUrl : 'http://stark-moon-3372.herokuapp.com/channel.html', // Channel File
+	      status     : true, // check login status
+	      cookie     : true, // enable cookies to allow the server to access the session
+	      xfbml      : true  // parse XFBML
+	    });
+
+	    FB.Event.subscribe('auth.statusChange', handleStatusChange);
+	  };
+
+	  // Load the SDK Asynchronously
+	  (function(d){
+	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+	     if (d.getElementById(id)) {return;}
+	     js = d.createElement('script'); js.id = id; js.async = true;
+	     js.src = "//connect.facebook.net/en_US/all.js";
+	     ref.parentNode.insertBefore(js, ref);
+	   }(document));
+	</script>
+	<script>
+   function handleStatusChange(response) {
+     document.body.className = response.authResponse ? 'connected' : 'not_connected';
+
+     if (response.authResponse) {
+       console.log(response);
+       updateUserInfo(response);
+     }
+   }
+ </script>
+</body>
+</html>
