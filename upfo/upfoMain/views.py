@@ -16,6 +16,7 @@ def channel(request):
     
     return render_to_response('channel.html', RequestContext(request))
     
+@csrf_exempt
 def home(request):
     """Home view, displays login mechanism"""
     if request.user.is_authenticated():
@@ -45,6 +46,7 @@ def about(request):
 
 
 @login_required
+@csrf_exempt
 def make_upfo(request):
     
     profile = request.user.get_profile()
@@ -59,6 +61,7 @@ def make_upfo(request):
     return render_to_response('is_upfo.html', response, RequestContext(request))
 
 @login_required
+@csrf_exempt
 def del_upfo(request):
     
     profile = request.user.get_profile()
@@ -71,6 +74,7 @@ def del_upfo(request):
     return render_to_response('not_upfo.html', RequestContext(request))
 
 @login_required
+@csrf_exempt
 def list_page(request):
     #Turn upfo true or false
     turn_true(request)
