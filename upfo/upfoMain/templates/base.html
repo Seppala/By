@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<!-- ><html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml"> -->
+<!-- <!DOCTYPE html> -->
+<<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
 <html>
   <head>
     <title>By App - Turning cities into villages</title>
@@ -34,7 +34,6 @@
 	  FB.ui({method: 'apprequests',
 	    message: "wants to see when you're up for something! Join By and you can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
 	    to: id,
-		redirect_uri: 'http://stark-moon-3372.herokuapp.com/facebook'
 	  }, requestCallback);
 	}
 
@@ -42,7 +41,6 @@
 	function sendRequestViaMultiFriendSelector() {
 	  FB.ui({method: 'apprequests',
 	    message: "Hi! I'd like to be able to see when you're up for something. Join By and we can easily meet more often! By is the easiest way to see if any of your friends are up for doing something at a specific time.",
-	redirect_uri: 'http://stark-moon-3372.herokuapp.com/facebook'
 	  }, requestCallback);
 	
 	}
@@ -74,7 +72,7 @@
 
   <body>
     
-	<!-- <div id="fb-root"></div> -->
+	<<div id="fb-root"></div>
 	<script>
 	  window.fbAsyncInit = function() {
 	    FB.init({
