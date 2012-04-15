@@ -33,8 +33,8 @@
 	function sendRequestToRecipients(id) {
 	  FB.ui({method: 'apprequests',
 	    message: 'My Great Request',
-	    to: id
-		//redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
+	    to: id,
+		redirect_uri: 'http://stark-moon-3372.herokuapp.com/'
 	  }, requestCallback);
 	}
 	/*
@@ -42,6 +42,7 @@
 	  FB.ui({method: 'apprequests',
 	    message: 'My Great Request',
 	  }, requestCallback);
+	
 	}*/
 	
 	function sendRequestViaMultiFriendSelector() {
