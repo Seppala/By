@@ -114,7 +114,7 @@ None of your friends are on By yet! Invite them below or bulk-invite here: <a hr
 			<tr><td><p>{{ friend.name }}</p></td><td>
 				<!-- ><input type="button" class="btn btn-small btn-primary" onClick="sendRequestToRecipients({{ friend.id }}); return false;" value="Invite"><i class="icon-heart icon-white"></i>
 				</input>-->
-				<button class="btn btn-small btn-primary invite" onClick="sendRequestToRecipients({{ friend.id }}); return false;"><i class="icon-heart icon-white"></i> Invite</button>
+				<button class="btn btn-small btn-primary invite" onClick="sendRequestToRecipients({{ friend.id }}); return false;"><i class="icon-heart icon-white"></i> Invite</button><a href="#" onClick="sendRequestToRecipients({{ friend.id }}); return false;"> send invite </a>
 				</input>
 				</td>
 				</tr>
@@ -127,49 +127,6 @@ None of your friends are on By yet! Invite them below or bulk-invite here: <a hr
 
 {% block dynamic %}{% endblock %}    
 
-<script>
-
-//Ajax call to change status.
-function turn_upfo()
-
-//
-
-// Not used now, would automatically pop up a share dialog when a radio button is checked.
-	function go_upfo(e) {
-	    if (e.preventDefault) e.preventDefault();
-		
-			if( $('input[value=yes]').is(':checked') ){
-			      fb_share()
-			}
-	
-	    /* do what you want with the form */
-
-	    // You must return false to prevent the default form behavior
-	
-	    return false;
-	}
-	
-	var form = document.getElementById('upfo');
-	if (form.attachEvent) {
-	    form.attachEvent("submit", go_upfo);
-	} else {
-	    form.addEventListener("submit", go_upfo);
-	}
-
-	function fb_share() {
-	  	FB.ui({ method: 'feed', 
-		            message: 'Facebook for Websites is super-cool'
-					});
-	
-	}
-	
-	var fb_post = function() {
-		
-	}
-
-	$("#upfo").click(go_upfo);
-	
-</script>
 <script>
 function publishStory() {
   FB.ui({
