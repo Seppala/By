@@ -36,7 +36,7 @@
 	  window.fbAsyncInit = function() {
 	    FB.init({
 	      appId      : {{ APP_ID }}, // App ID
-	      channelUrl : '//WWW.UPFO.FI/channel/', // Channel File
+	      channelUrl : 'http://www.stark-moon-3372.herokuapp.com/channel/', // Channel File
 	      status     : true, // check login status
 	      cookie     : true, // enable cookies to allow the server to access the session
 	      xfbml      : true  // parse XFBML
@@ -115,7 +115,7 @@ function sendRequestToRecipients(id) {
     to: id,
   }, requestCallback);
 
-window.scrollTo(0, 0);
+//window.scrollTo(0, 0);
 }
 
 
