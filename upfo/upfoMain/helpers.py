@@ -39,7 +39,7 @@ def check_friends_for_users(friends_list):
                 dicta[i] = dicta2
                 i += 1
             except:
-                print('no user with that uid...')
+                pass
     return dicta
 
 #the auto_false method is called automatically from schedule_false, automatically one hour after a user sets his upfo status to true.
@@ -60,36 +60,27 @@ def auto_false(request):
 def turn_true(request):
    
     ii = request.user.get_profile()
-    print('Im in turn true!')
-    #print(friends_list)
 
     print(ii.is_upfo) #Here it is False
    
     if ii.is_upfo == None or ii.is_upfo == False:
         ii.is_upfo = True
-        print('made it true..')
         ii.save()
         #schedule to turn upfo back to false in 1 hour
         schedule_false([request])
     elif ii.is_upfo == True:
-        print('so now it comes here...')
         ii.is_upfo = False
         ii.save()
     
 def schedule_false(request):
     
     # Start the scheduler
-    print('doing the scheduling..')
     sched = Scheduler()
     sched.start()
     # Define the time to be in 1 minute
     now = datetime.now()
     mini = timedelta(minutes=30)
     jobi_date = now + mini 
-    print('current time is: ')
-    print(now)
-    print('jobi_date is: ')
-    print(jobi_date)
     #schedule the turn_true job with request as a paremeter
     job = sched.add_date_job(auto_false, jobi_date, request)
     
@@ -116,29 +107,16 @@ def friends_are_users(friends_dict):
     
     all_users = User.objects.all()
     social_users = UserSocialAuth.objects.all()
-    #print('in fau: users:' + str(all_users))
-    #print('in fau: social_users:' + str(social_users))
-    #print('friends dict data:' + str(friends_dict['data']))
-    #for each person in the dict 
-    #print(friends_dict['data'])
+
     for friend in friends_dict['data']:
-        #check if they are users
-        #print('in for loop')
-        #get the facebook id]
+
         ids = friend['id']
-        #print('this id' + str(ids))
+
         try:
             thisguy = social_users.get(uid=ids)
-            #print('this guy:')
-            #print(thisguy)
-            #print('this guy User:')
-            #print(thisguy.user)
+            
             thisuser = thisguy.user
-            #print(social_users.get.all())
-            #if they are users check if they are upfo
-            #if they are, add to an upfo list
-            #print('got thisguy as existing:' + str(social_users.get(uid=ids)))
-            #print('upfo status: ' + str(.get_profile().is_upfo))
+            
             try:
                 if thisuser.get_profile().is_upfo == True:
                     print("and he's upfo")
@@ -153,13 +131,7 @@ def friends_are_users(friends_dict):
         except:
             #if the user can't be found in the database, he's a non-user...
             nonusers.append(friend)
-            #print(' appending to non-user now')
-    #print('nonusers: ')
-    #print(nonusers)
-    #print('users: ')
-    #print(users)
-    #print('upfos: ')
-    #print(upfos)
+     
     user_lists = {'upfos': upfos, 'users': users, 'nonusers': nonusers }
     return user_lists
         
