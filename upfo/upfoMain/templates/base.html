@@ -35,11 +35,19 @@
 	<script>
 	  window.fbAsyncInit = function() {
 	    FB.init({
-	      appId      : {{ APP_ID }}, // App ID
+		  	appId: {{ APP_ID}}, 
+			status: true,
+			cookie: true,
+			xfbml: true,
+			frictionlessRequests: true,
+			useCachedDialogs: true,
+			oauth: true
+		
+	    /*  appId      : {{ APP_ID }}, // App ID
 	      channelUrl : 'http://www.stark-moon-3372.herokuapp.com/channel/', // Channel File
 	      status     : true, // check login status
 	      cookie     : true, // enable cookies to allow the server to access the session
-	      xfbml      : true  // parse XFBML
+	      xfbml      : true  // parse XFBML*/
 	    });
 
 	    // Additional initialization code here
