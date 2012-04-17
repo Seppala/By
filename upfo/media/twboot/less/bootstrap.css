@@ -8,6 +8,22 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+/* Attach footer to the bottom
+*/
+
+.footer-bottom {
+	position:relative;
+	bottom:0;
+}
+
+#wrapp{
+	min-height:100%;
+}
+
+html, body {
+    height: 100%;
+}
+
 /*
  *Colors for the fonts. 
  *
@@ -2624,7 +2640,7 @@ input[type="submit"].btn.small {
 }
 .navbar {
   overflow: visible;
-  margin-bottom: 18px;
+  /*margin-bottom: 18px;*/
 }
 .navbar-inner {
   padding-left: 20px;
@@ -3120,6 +3136,7 @@ input[type="submit"].btn.small {
 .modal-body {
   padding: 15px;
 }
+
 .modal-footer {
   padding: 14px 15px 15px;
   margin-bottom: 0;

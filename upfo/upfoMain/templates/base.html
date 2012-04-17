@@ -12,13 +12,13 @@
 	<style>
 	
 		
-		.background {
+	/*	.background {
 		  background-image: url(/{{ STATIC_URL }}bg.png);
-		}
-	
+		}*/
+	/*
 		body {
 			background-image: url(/{{ STATIC_URL }}bg_light.gif);
-		}
+		}*/
 		.hero-unit {
 			background-image: url(/{{ STATIC_URL }}front_bg.png);
 			max-width: 920px;
@@ -31,64 +31,39 @@
   </head>
 
   <body>
+	
+<div id="wrapp">
     
 	<div id="fb-root"></div>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-		  	appId: {{ APP_ID}}, 
-			status: true,
-			cookie: true,
-			xfbml: true,
-			frictionlessRequests: true,
-			useCachedDialogs: true,
-			oauth: true
-		
-	    /*  appId      : {{ APP_ID }}, // App ID
-	      channelUrl : 'http://www.stark-moon-3372.herokuapp.com/channel/', // Channel File
-	      status     : true, // check login status
-	      cookie     : true, // enable cookies to allow the server to access the session
-	      xfbml      : true  // parse XFBML*/
-	    });
-
-	    // Additional initialization code here
-	  };
-
-	  // Load the SDK Asynchronously
-	  (function(d){
-	     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
-	     js = d.createElement('script'); js.id = id; js.async = true;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     d.getElementsByTagName('head')[0].appendChild(js);
-	   }(document));
-	</script>
-	<div class="background">
-	{% if messages %}
-	    {% for msg in messages %}
-	        <p class="error">{{ msg.message }} ({{ msg.extra_tags }})</p>
-	    {% endfor %}
-	  {% endif %}
-	  {% if error_msg %}
-	    <p>Details:</p>
-	    <p class="error">{{ error_msg }}</p>
-	  {% endif %}
-	<section id="description">
-		<div> 
-
-		</div>
+	
 {% if user.is_authenticated %}
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<a class="by red" href="/">By</a>
+			<a class="by blue" href="/">By</a>
 		</div>
 {% endif %}
+<div class="background">
+{% if messages %}
+    {% for msg in messages %}
+        <p class="error">{{ msg.message }} ({{ msg.extra_tags }})</p>
+    {% endfor %}
+  {% endif %}
+  {% if error_msg %}
+    <p>Details:</p>
+    <p class="error">{{ error_msg }}</p>
+  {% endif %}
+<section id="description">
+	<div> 
      {% block content %}{% endblock %}
 
 </div><!-- Ends container-fluid -->
 </div><!-- Ends div "background" -->
+</div>
+</div><!-- ends div "wrapp" -->
 {% block facebook %}{% endblock %}
-<div class="container-fluid">
-	<div class="span12">
+<div class="navbar footer-bottom">
+	<div class="navbar-inner">
+		<div class="container">
 		<footer class="footer">
 			
 			<table>
@@ -115,8 +90,38 @@
 			</table>
 			
 		</footer>
+		<div>
 	</div>
 </div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+	  	appId: {{ APP_ID}}, 
+		status: true,
+		cookie: true,
+		xfbml: true,
+		frictionlessRequests: true,
+		useCachedDialogs: true,
+		oauth: true
+	
+    /*  appId      : {{ APP_ID }}, // App ID
+      channelUrl : 'http://www.stark-moon-3372.herokuapp.com/channel/', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML*/
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     d.getElementsByTagName('head')[0].appendChild(js);
+   }(document));
+</script>
 <script type="text/javascript">
 function sendRequestToRecipients(id) {
   FB.ui({method: 'apprequests',
