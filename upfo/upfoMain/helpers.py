@@ -84,7 +84,7 @@ def schedule_false(request):
     sched.start()
     # Define the time to be in 1 minute
     now = datetime.now()
-    mini = timedelta(minutes=1)
+    mini = timedelta(minutes=30)
     jobi_date = now + mini 
     print('current time is: ')
     print(now)
