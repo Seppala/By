@@ -8,6 +8,18 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+/*Give border to the list of people*/
+tr.people {
+	border-top: 1px solid #E5E5E5;
+}
+
+/*Create a border*/
+.border {
+	margin-top:2px;
+	padding-top:12px;
+	border-top: 1px solid #E5E5E5;
+}
+
 /* Attach footer to the bottom
 */
 
@@ -205,8 +217,7 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
-	color: #F7E967;
-  /*color: #ffc40d;*/
+  color: #333333;
   background-color: #ffffff;
 }
 a {
@@ -423,6 +434,9 @@ h6 {
 h3 {
 	font-weight: normal;
 	font-style: italic;
+	line-height: 18px;
+	font-size: 18px;
+	margin-top:10px;
 }
 h1 small,
 h2 small,
@@ -452,12 +466,7 @@ h2 {
 h2 small {
   font-size: 18px;
 }
-h3 {
-  line-height: 22px;
-  color: #eeeeee;
-  font-size: 18px;
-	margin-top:5px;
-}
+
 h3 small {
   font-size: 14px;
 }

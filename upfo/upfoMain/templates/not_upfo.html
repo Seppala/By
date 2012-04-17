@@ -23,7 +23,7 @@
 		</div>
 	</div>
 
-<div class="row-fluid">
+<div class="row-fluid border">
 	<div class="span12">
 		<p class="red">You have to be up for something to see if your friends are up for something.</p>
 	</div>
@@ -64,14 +64,14 @@
 
 </div>
 
-		<h3>Your friends that are up for something now</h3>
-		<div class="row-fluid">
+		<h3 class="">Your friends that are up for something now</h3>
+		<div class="row-fluid border">
 			<div class="span12">
 				<table class="table-condensed">
 				{% if upfos or users %}
 					{% if upfos%}
 						{% for friend in upfos %}
-						<tr><td>{{ friend.name }}</td></tr>
+						<tr class="people"><td>{{ friend.name }}</td></tr>
 						{% endfor %}
 					{% else %}
 						{% if users %}
@@ -90,23 +90,23 @@ None of your friends are on By yet! Invite them below or bulk-invite here: <a hr
 		</div>
 {% if users %}
 		<h3>Friends already using By:</h3>
-	<div class="row-fluid">
+	<div class="row-fluid border">
 		<div class="span12">
 		<table class="table-condensed">
 			{% for friend in users %}
-			<tr><td>{{ friend.name }}</td></tr>
+			<tr class="people"><td>{{ friend.name }}</td></tr>
 			{% endfor %}
 		</table>
 		</div>
 		</div>
 {% endif %}
 		<h3>Friends not yet on By:</h3>
-		<div class="row-fluid">
+		<div class="row-fluid border">
 			<div class="span12">
 		<table class="table-condensed">
 			{% for friend in nonusers %}
 		
-			<tr><td><p>{{ friend.name }}</p></td><td>
+			<tr class="people"><td><p>{{ friend.name }}</p></td><td>
 				<!-- ><input type="button" class="btn btn-small btn-primary" onClick="sendRequestToRecipients({{ friend.id }}); return false;" value="Invite"><i class="icon-heart icon-white"></i>
 				</input>-->
 				<button class="btn btn-small btn-primary invite" onClick="sendRequestToRecipients({{ friend.id }}); return false;"><i class="icon-heart icon-white"></i> Invite</button>
