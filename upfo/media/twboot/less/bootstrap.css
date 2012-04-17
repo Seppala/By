@@ -40,6 +40,11 @@ html, body {
  *Colors for the fonts. 
  *
  */
+
+.royalblue {
+	color: #436EEE;
+}
+
 .blue {
 	color: 	#049cdb;
 }
@@ -222,7 +227,7 @@ body {
 }
 a {
   color: #0088cc;
-  text-decoration: none;
+  text-decoration: underline;
 }
 a:hover {
   color: #005580;
@@ -477,6 +482,7 @@ h6 {
 }
 h4 {
   font-size: 14px;
+	font-weight:normal;
 }
 h4 small {
   font-size: 12px;
