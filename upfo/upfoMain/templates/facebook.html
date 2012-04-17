@@ -1,64 +1,20 @@
 <html>
 <head>
-  <title>Hello World</title>
+  <title>The Byy - The easiest way to meet your friends more often/title>
+<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap1.css">
 </head>
 <body>
-	<div id="login">
-	   <p><button onClick="loginUser();">Login</button></p>
-	 </div>
-	 <div id="logout">
-	   <p><button  onClick="FB.logout();">Logout</button></p>
-	 </div>
-
-	<a href="#" onclick="sendRequest();">Send request</a><br>
-	<script>
-	function sendRequest() {
-	  FB.ui({
-	    method: 'apprequests',
-	    message: 'invites you to learn how to make your mobile web app social',
-	  }, 
-	  function(response) {
-	    console.log('sendRequest response: ', response);
-	  });
-	}
-	</script>
-	 <script>
-	   function loginUser() {    
-	     FB.login(function(response) { }, {scope:'email'});     
-	     }
-	 </script>
-	<div id="fb-root"></div>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '	377303882291538', // App ID
-	      channelUrl : 'http://stark-moon-3372.herokuapp.com/channel.html', // Channel File
-	      status     : true, // check login status
-	      cookie     : true, // enable cookies to allow the server to access the session
-	      xfbml      : true  // parse XFBML
-	    });
-
-	    FB.Event.subscribe('auth.statusChange', handleStatusChange);
-	  };
-
-	  // Load the SDK Asynchronously
-	  (function(d){
-	     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement('script'); js.id = id; js.async = true;
-	     js.src = "//connect.facebook.net/en_US/all.js";
-	     ref.parentNode.insertBefore(js, ref);
-	   }(document));
-	</script>
-	<script>
-   function handleStatusChange(response) {
-     document.body.className = response.authResponse ? 'connected' : 'not_connected';
-
-     if (response.authResponse) {
-       console.log(response);
-       updateUserInfo(response);
-     }
-   }
- </script>
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+	<h1 class="blue">The Byy</h1>
+	<h3 class="gray">The easiest way to meet your friends more often</h3>
+	<p>Have you ever wanted to do something but you didn't know who to call? You might have called a couple of friends but they were occupied?</p>
+	<p>Byy solves the problem of finding your friends that are up for something on a specific moment</p>
+	<h4 class="gray">How does it work?</h4>
+	<p>You just log in with Facebook and click the "I'm up for something"-button. Anyone of your Facebook contacts that has also clicked within one hour will be able to see that you're available. Your status will be "up for something" for one hour unless you cancel your status.</p>
+	<p>When you're "up for something", you'll be able to see a list of your friends that are up for something. Then just call them up, message them on Facebook or go knock on their door.</p>
+	</div>
+	</div>
 </body>
 </html>
