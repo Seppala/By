@@ -79,7 +79,7 @@ def schedule_false(request):
     sched.start()
     # Define the time to be in 1 minute
     now = datetime.now()
-    mini = timedelta(minutes=30)
+    mini = timedelta(minutes=5)
     jobi_date = now + mini 
     #schedule the turn_true job with request as a paremeter
     job = sched.add_date_job(auto_false, jobi_date, request)
