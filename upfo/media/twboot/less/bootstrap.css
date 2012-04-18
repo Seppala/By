@@ -64,6 +64,7 @@ tr.people {
 
 .footer-bottom {
 	position:relative;
+	margin-top:-49px;
 	bottom:0;
 }
 
