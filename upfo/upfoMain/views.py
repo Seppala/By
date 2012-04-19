@@ -43,6 +43,10 @@ def legal(request):
 def about(request):
 
 	return render_to_response('about.html', RequestContext(request))
+	
+def feedback(request):
+	
+	return render_to_response('feedback.html', RequestContext(request))
 
 
 @login_required
