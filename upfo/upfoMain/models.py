@@ -15,6 +15,9 @@ class CustomUser(models.Model):
     def is_authenticated(self):
         return True
 
+	def __unicode__(self):
+	    return self.user
+
 from social_auth.signals import pre_update, socialauth_registered
 from social_auth.backends.facebook import FacebookBackend
 
