@@ -131,6 +131,7 @@ INSTALLED_APPS = (
 	'facebookapi',
 	'fbtestusers',
 	'storages',
+	'gunicorn',
 )
 
 
