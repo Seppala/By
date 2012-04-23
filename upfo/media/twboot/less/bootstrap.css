@@ -8,6 +8,9 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+.pusherdiv {
+	height: 49px;
+}
 
 .margin49 {
 	margin-bottom: 49px;
@@ -16,7 +19,9 @@
 
 .herocont {
 
-	z-index: 2;
+	padding-left:60px;
+	padding-top: 30px;
+	padding-bottom:70px;
 }
 
 .bgpicbg {
@@ -26,10 +31,10 @@
 .bgpic {
 	position:relative;
 	max-width:994px;
-  padding-left: 60px;
+  /*padding-left: 60px;
   padding-top:30px;
   padding-bottom:70px;
-  margin-bottom: 30px;
+  margin-bottom: 30px;*/
   background-color: #414141;
 }
 .bgpic h1 {
@@ -138,15 +143,29 @@ html, body {
 	
 } 
 
+p.annons{
+	font-size:12px;
+}
+
+.annons {
+	padding-right:60px;
+	padding-top:5px;
+}
+
+.sheet {
+	background-color: rgba(0,0,0,0.65);
+}
+
 .logo-wrapper {
 	background-color: rgba(0,0,0,0.65);
 	padding-top:2px;
 	padding-left:5px;
+	padding-right:20px;
 	-webkit-border-radius: 3px;
 	  -moz-border-radius: 3px;
 	  border-radius: 3px;
 	margin-bottom: 5px;
-	width:220px;
+	width:202px;
 }
 
 .facebook {

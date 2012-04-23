@@ -7,8 +7,13 @@
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 	<!-- <script type="text/javascript" src="/{{STATIC_URL}}jquery-1.7.2.min.js"></script> -->
+{% if settings.DEBUG == True %}
+	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
+{% else %}
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
+{% endif %}
 	<style>
 	
 		
@@ -61,6 +66,8 @@
 </div>
 </div><!-- ends div "wrapp" -->
 {% block facebook %}{% endblock %}
+<div class="pusherdiv">It's an attitude thing and everything affects it.
+	</div>
 <div class="navbar footer-bottom">
 	<div class="navbar-inner">
 		<div class="container">

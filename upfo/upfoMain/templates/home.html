@@ -3,22 +3,23 @@
 {% block content %}
 <div class="bgpicbg">
 <div class="bgpic">
+	<div class="sheet">
 					<!--
 					<div class="logo">
 						<img style="height: 30px; width: 40px; margin-right: -10px; margin-top: 12px; float: right;" src="{{ STATIC_URL}}logo1.png"></img>
 					</div>
 					-->
 				<div class="herocont">
-						<h1>Byy</h1>
+						<h1>By</h1>
 					<div class="logo-wrapper">
 						<h2>Who's up for something?</h2>
 					</div>	
 						{% for name in social_auth.backends.oauth2 %}
 						    <a class="fb_button fb_button_large" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
 						  {% endfor %}
-						<p style="margin-top:10px">We'll never post anything to Facebook without asking you first.</p>
+						<p class="annons">We'll never post anything to Facebook without asking you first.</p>
 				</div>
-						
+				</div>		
 </div>	
 </div>
 
@@ -33,11 +34,11 @@
 	<div class="row-fluid">
 		<div class="span4">
 			<h2 class="gray">Meet more friends</h2>
-			<p>IWe want to meet our best friends more often and also meet friends we haven't seen for a while. That's why we created By. It's the easiest way to meet more friends.</p> 
+			<p>We want to help people meet their friends more often. Use By, see when your friends are up for something and meet the friends you don't meet that often.</p> 
 		</div>
 		<div class="span4">
 			<h2 class="gray">By? Epic?</h2>
-			<p>By means village in Swedish. Back when most of us lived is smaller villages, it was easy to connect with people. You pretty much knew everyone. We want to bring some of that to the cities we live in now.</p>
+			<p>By means village in Swedish. Back when most of us lived is smaller villages, it was easy to connect with people. You pretty much knew everyone. We want to bring some of that to the cities we live in now. It's Epic.</p>
 		</div>
 		<div class="span4 margin49">
 			<h2 class="gray">What does By do?</h2>
