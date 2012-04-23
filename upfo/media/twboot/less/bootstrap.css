@@ -143,6 +143,10 @@ html, body {
 	
 } 
 
+.btn-primary:visited {
+	background-color: white;
+}
+
 p.annons{
 	font-size:12px;
 }
