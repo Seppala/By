@@ -8,6 +8,22 @@
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
 
+.Dosis {
+	font-family: 'Dosis', sans-serif;
+}
+
+.Poiret {
+	font-family: 'Poiret One', cursive;
+}
+
+.Norican {
+	font-family: 'Norican', cursive;
+}
+
+.Chelsea {
+	font-family: 'Chelsea Market', cursive;
+}
+
 .pusherdiv {
 	height: 49px;
 }
