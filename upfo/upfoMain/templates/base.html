@@ -2,7 +2,7 @@
 <!-- <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">-->
 <html>
   <head>
-    <title>By App - Tell your friends that you're up for something</title>
+    <title>By App - Who's up for something?</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
@@ -75,8 +75,8 @@
 			
 			<table>
 				<tr>
-					<td>
-						<a id="feedback" href="/feedback"><b>Feedback</b></a>
+					<td style="width: 64px">
+						<a id="feedback" href="/feedback">Feedback </a>
 					</td>
 					{% if user.is_authenticated %}
 					<td style="width: 57px">
@@ -87,7 +87,7 @@
 					</td>
 					{% endif %}
 					<td>
-						<a href="/about">Aboutt</a>&nbsp;
+						<a href="/about">About</a>&nbsp;
 					</td>
 					<td>
 						<a href="/legal">Legal</a>&nbsp;
