@@ -1,7 +1,7 @@
 import os
 # Django settings for upfo project.
 
-DEBUG = False
+DEBUG = True
 
 ADMINS = (
     ('Riku', 'riku@seppa.la'),
