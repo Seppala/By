@@ -45,7 +45,7 @@
 {% if user.is_authenticated %}
 	<div class="container-fluid">
 		<div class="row-fluid">
-			<a class="by royalblue" href="/">By</a>
+			<a class="by royalblue Poiret" href="/">By</a>
 		</div>
 {% endif %}
 <div class="background">
@@ -76,8 +76,8 @@
 			
 			<table>
 				<tr>
-					<td>
-						<a id="feedback" href="/feedback"><b>Feedback</b></a>
+					<td id="feedback">
+						<a id="feedback" style="width:67px" href="/feedback"><b>Feedback</b></a>
 					</td>
 					{% if user.is_authenticated %}
 					<td style="width: 57px">
@@ -88,7 +88,7 @@
 					</td>
 					{% endif %}
 					<td>
-						<a href="/about">Aboutt</a>&nbsp;
+						<a href="/about">About</a>&nbsp;
 					</td>
 					<td>
 						<a href="/legal">Legal</a>&nbsp;

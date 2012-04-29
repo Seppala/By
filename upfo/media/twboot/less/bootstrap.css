@@ -40,6 +40,12 @@
 	padding-bottom:70px;
 }
 
+#feedback {
+	background-color: #00ff7f;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
 .bgpicbg {
 	z-index: 1;
 	background-color: rgb(25,25,25);
