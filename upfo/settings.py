@@ -187,7 +187,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 SOCIAL_AUTH_ENABLED_BACKENDS = ('facebook',)
 
 LOGIN_URL = '/login-form/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/betafi/'
 LOGIN_ERROR_URL = '/login-error/'
 
 SOCIAL_AUTH_COMPLETE_URL_NAME  = 'socialauth_complete'
