@@ -9,8 +9,8 @@
 
 	<!-- <script type="text/javascript" src="/{{STATIC_URL}}jquery-1.7.2.min.js"></script> -->
 {% if settings.DEBUG == True %}
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
 {% else %}
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
@@ -81,17 +81,17 @@
 					</td>
 					{% if user.is_authenticated %}
 					<td style="width: 57px">
-						<a href="/settings">Settings</a>
+						<a href="/settings"> Settings</a>
 					</td>
 					<td>
 						<a rel="nofollow" class="logout" href="/logout/">Logout</a>&nbsp;
 					</td>
 					{% endif %}
 					<td>
-						<a href="/about">About</a>&nbsp;
+						<a href="/about"> About</a>&nbsp;
 					</td>
 					<td>
-						<a href="/legal">Legal</a>&nbsp;
+						<a href="/legal"> Legal</a>&nbsp;
 					</td>
 				</tr>
 				<tr>
