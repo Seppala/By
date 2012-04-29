@@ -10,20 +10,22 @@
 	<div class="container-fluid">
 		<div class="row-fluid">
 			<div class="span12">
-	<h3 class="gray">You've been to By!</p>
+	<h3 class="gray">You've been invited to By. Your friends want to meet you more often in person.</p>
 	<h1 class="royalblue">By</h1>
 	<h3 class="gray">Tell your friends that you're up for something</h3>
 	<div style="color:black;">
-		<p>We want to meet our best friends more often and also meet friends we haven't seen for a while.</p>
+		<p>'By' means 'Village' in Swedish. Back when people lived in smaller villages you would meet people you know all the time. We want to make it more like that in the cities we live in now..</p>
 		<p style="margin-top:-5px"> That's why we created By. It's the easiest way to meet more friends.</p>		
 	<h3 style="margin-top:25px" class="gray">How does it work?</h3>
 	<p>By is just a button from which you can tell your friends that you're up for something.</p>
 	<p>You just log in with Facebook and click the "I'm up for something"-button. You'll see the friends that are up for something and they'll see you. Then all you have to do is call them up!</p>
 	<p style="margin-bottom:25px">Byy is optimized for mobile, but you can use it in your browser as well. It's new and we're still developing it so please give us feedback!</p>
 	</div>
-		<a class="btn-large btn-success" href="http://stark-moon-3372.herokuapp.com"> Go to Byy
-		</a>
-	</p>
+	<p>
+		{% for name in social_auth.backends.oauth2 %}
+		    <a class="fb_button fb_button_large" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
+		  {% endfor %}
+		</p>
 	</div>
 	</div>
 </body>
