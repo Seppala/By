@@ -36,10 +36,6 @@ def settingpage(request):
 	
 	return render_to_response('settings.html', RequestContext(request))
 	
-def landing(request):
-	
-	return render_to_response('landing.html', RequestContext(request))
-	
 def legal(request):
 
 	return render_to_response('legal.html', RequestContext(request))

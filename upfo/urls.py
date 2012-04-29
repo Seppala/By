@@ -2,14 +2,13 @@ from django.conf.urls.defaults import patterns, url, include
 from django.contrib import admin
 import settings
 
-from upfoMain.views import home, done, logout, error, channel, printFriends, landing, friendson, turn_true, make_upfo, del_upfo, settingpage, legal, about, facebook, feedback
+from upfoMain.views import home, done, logout, error, channel, printFriends, friendson, turn_true, make_upfo, del_upfo, settingpage, legal, about, facebook, feedback
 
 
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', landing, name='landing'),
-	url(r'^betafi', home, name='home'),
+    url(r'^$', home, name='home'),
 	#url(r'^hide/(\d+)/$', hide, name='hide'),
     url(r'^betafi/done/$', done, name='done'),
 	url(r'^betafi/logged-in/$', done, name='done'),
