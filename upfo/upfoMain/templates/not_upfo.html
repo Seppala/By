@@ -14,7 +14,7 @@
 	</div>
 	<div class="row-fluid">
 <!--		<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/'">I'm up for something</button>-->
-	<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/'" type= "submit">I'm up for something</button>
+	<button class="btn2 btn-large btn-primary" id="upfo" onClick="window.location='/make_upfo/';sendToMix()" type= "submit">I'm up for something</button>
 
 	</div>
 	<div class="row-fluid">
@@ -140,6 +140,10 @@ function publishStory() {
   });
   mixpanel.track("Story published");
   return false;
+}
+
+function sendToMix() {
+	mixpanel.track("Changed to upfo");
 }
 
 $("#upfo").click(function() {
