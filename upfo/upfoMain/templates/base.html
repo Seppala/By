@@ -9,8 +9,8 @@
 
 	<!-- <script type="text/javascript" src="/{{STATIC_URL}}jquery-1.7.2.min.js"></script> -->
 {% if settings.DEBUG == True %}
-	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.css">
-	<link rel="stylesheet" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
 {% else %}
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}twboot/less/bootstrap-responsive.css">
@@ -33,7 +33,9 @@
 	</style>
     <!--- <link rel="stylesheet/less" type="text/css" href="/{{ STATIC_URL }}twboot/less/bootstrap.less"> -->
 	<!---<script src="/{{ STATIC_URL }}less-1.2.1.min.js" type="text/javascript"></script>-->
-	
+	<!-- start Mixpanel --><script type="text/javascript">(function(d,c){var a,b,g,e;a=d.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===d.location.protocol?"https:":"http:")+'//api.mixpanel.com/site_media/js/api/mixpanel.2.js';b=d.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b);c._i=[];c.init=function(a,d,f){var b=c;"undefined"!==typeof f?b=c[f]=[]:f="mixpanel";g="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config".split(" ");
+	for(e=0;e<g.length;e++)(function(a){b[a]=function(){b.push([a].concat(Array.prototype.slice.call(arguments,0)))}})(g[e]);c._i.push([a,d,f])};window.mixpanel=c})(document,[]);
+	mixpanel.init("3cc96366053a18841b1dbe78d5cbd40e");</script><!-- end Mixpanel -->
   </head>
 
   <body>
@@ -141,6 +143,7 @@ function sendRequestToRecipients(id) {
   }, requestCallback);
 
 window.scrollTo(0, 0);
+mixpanel.track("Request to One"); 
 }
 
 
@@ -148,13 +151,18 @@ function sendRequestViaMultiFriendSelector() {
   FB.ui({method: 'apprequests',
     message: "'By' is the Swedish word for 'village' It's also our new app that shows you who's up for something",
   }, requestCallback);
-
+mixpanel.track("Request to Many"); 
 }
 
 //Callback is required
 function requestCallback(response) {
     // Handle callback here
   }
+
+$("#loginbutton").click(function() {
+    // This sends us an event every time a user clicks the button
+    mixpanel.track("Logging in", {'id': {{ user.id }} }); 
+});
 </script>
   </body>
 </html>
