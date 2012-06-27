@@ -5,4 +5,5 @@ include
 lib
 .Python
 upfo/local_settings.py
+.DS_Store
 *.pyc
