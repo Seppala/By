@@ -4,12 +4,14 @@
 <div class="bgpicbg">
 <div class="bgpic">
 	<div class="sheet">
+		<p class="annons">By is Made for Mobile.</p>
 					<!--
 					<div class="logo">
 						<img style="height: 30px; width: 40px; margin-right: -10px; margin-top: 12px; float: right;" src="{{ STATIC_URL}}logo1.png"></img>
 					</div>
 					-->
 				<div class="herocont">
+					
 						<h1 class="Poiret">By</h1>
 					<div class="logo-wrapper">
 						<h2>Who's up for something?</h2>
@@ -17,6 +19,7 @@
 						{% for name in social_auth.backends.oauth2 %}
 						    <a id="loginbutton" class="fb_button fb_button_large" rel="nofollow" href="{% url socialauth_begin name %}"><span class="fb_button_text">Log in</span></a>
 						  {% endfor %}
+			
 						<p class="annons">We'd never post anything to Facebook without asking you first. pinky-promise.</p>
 				</div>
 				</div>		
@@ -33,18 +36,20 @@
 	</div>
 	<div class="row-fluid">
 		<div class="span4">
-			<h2 class="gray Dosis">By? Epic?</h2>
-			<p>'By' means 'Village' in Swedish. Back when people lived in smaller villages you would meet people you know all the time. We want to make it more like that in the cities we live in now. That's why we created By.</p> 
-		</div>
-		<div class="span4">
-			<h2 class="gray Dosis">Who's up for something?</h2>
-			<p>Basically By is just a button from which you can tell your friends that you're up for something. You just log in with Facebook and click the "I'm up for something"-button. You'll see the friends that are up for something and they'll see you. Then all you have to do is call them up!</p>
+			<h2 class="gray Dosis">What is By?</h2>
+			<p>Basically By is just a button that let's your friends know that you're up for something. You just log in with Facebook and click the "I'm up for something"-button. You'll see a list of friends that are up for something and they'll see you. Then all you have to do is call them up or go knock on their door (old school)!</p>
 
 		</div>
 		<div class="span4 margin49">
-			<h2 class="gray Dosis">Why?</h2>
-			<p>Ever had a situation where you'd like to do something but you didn't know who to call? Just get used to using By and get your friends on it and you will not have that problem again.</p>
+			<h2 class="gray Dosis">What's the use?</h2>
+			<p>When you go out, check By and see who else is up for something, gather more people and meet more friends.If ever you find yourself in a situation where you'd like to do something but you don't know who to call, just check By.</p>
 		</div>
+		<div class="span4">
+			<h2 class="gray Dosis">By? Epic?</h2>
+			<p>'By' means 'Village' in Swedish. Back when people lived in smaller villages you would meet people you know all the time. We want to make it more like that in the cities we live in now. That's why we created By.</p> 
+		</div>
+		
+		
 	</div>	
 </div>
 

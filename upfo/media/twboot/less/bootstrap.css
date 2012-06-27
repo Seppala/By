@@ -50,6 +50,10 @@
 	text-decoration:none;
 }
 
+#leftspace {
+	padding-left:5px;
+}
+
 .bgpicbg {
 	z-index: 1;
 	background-color: rgb(25,25,25);
